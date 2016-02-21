@@ -8,5 +8,8 @@
       "name": "Abel",
       "email": "zxz054321@163.com"
     }
-  ]
+  ],
+  "require": {
+    "illuminate/support": "^5.2"
+  }
 }

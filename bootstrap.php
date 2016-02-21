@@ -9,6 +9,8 @@ use Phalcon\Mvc\Micro;
 
 define('ROOT', __DIR__);
 
+require ROOT.'/vendor/autoload.php';
+
 //load app config
 $config = new Config(array_replace_recursive(
     require ROOT.'/config.php',
