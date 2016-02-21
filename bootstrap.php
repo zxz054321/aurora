@@ -24,7 +24,7 @@ register_shutdown_function(function () use ($config) {
             return;
         }
 
-        $logger = new FileAdapter(ROOT.'/logs/error.log');
+        $logger = new FileAdapter(ROOT.'/storage/logs/error.log');
 
         $logger->error(print_r($error, true));
     }
