@@ -1,0 +1,12 @@
+{
+  "name": "zxz054321/lightning",
+  "description": "A micro framework powered by Phalcon",
+  "minimum-stability": "stable",
+  "license": "Apache-2.0",
+  "authors": [
+    {
+      "name": "Abel",
+      "email": "zxz054321@163.com"
+    }
+  ]
+}
