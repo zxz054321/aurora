@@ -11,7 +11,7 @@ class AppController extends Controller
 
     public function hi()
     {
-        echo "<h1>Hi, I'm Lightning!</h1>";
+        require ROOT.'/resources/views/welcome.php';
     }
 
 }
