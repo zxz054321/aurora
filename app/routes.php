@@ -3,9 +3,13 @@
  * Author: Abel Halo <zxz054321@163.com>
  */
 
-define('CONTROLLERS', 'App\\Controllers\\');
+use Phalcon\Mvc\Micro\Collection as MicroCollection;
 
-$app->get('/', CONTROLLERS.'AppController::hi');
+$appController = new MicroCollection();
+$appController->setHandler(App\Controllers\AppController::class, true);
+$appController->get('/', 'hi');
+
+$app->mount($appController);
 
 $app->notFound(function () use ($app) {
     $app->response->setStatusCode(404, "Not Found")->sendHeaders();
