@@ -7,7 +7,7 @@ return [
     'cache'    => [
         'driver'    => 'file',
         'file'      => [
-            'dir' => ROOT.'/cache/',
+            'dir' => ROOT.'/storage/framework/cache/',
         ],
         'memcached' => [
             [
