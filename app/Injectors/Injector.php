@@ -5,17 +5,21 @@
 
 namespace App\Injectors;
 
+use Phalcon\DiInterface;
 
 abstract class Injector
 {
-    protected $di, $config;
+    /**
+     * @var DiInterface
+     */
+    protected $di;
+    protected $config;
 
     public function __construct($di, $config = null)
     {
         $this->di     = $di;
         $this->config = $config;
     }
-
 
     abstract public function inject();
 }
