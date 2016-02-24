@@ -5,7 +5,6 @@
 
 use Phalcon\Config;
 use Phalcon\Logger\Adapter\File as FileAdapter;
-use Phalcon\Mvc\Micro;
 
 define('ROOT', __DIR__);
 
@@ -40,12 +39,3 @@ $loader->registerNamespaces([
 
 // register autoloader
 $loader->register();
-
-//create app instance
-$app = new Micro();
-
-$app['config'] = $config;
-
-require ROOT.'/app/injector.php';
-
-return $app;
