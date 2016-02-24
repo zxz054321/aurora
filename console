@@ -1,0 +1,60 @@
+#!/usr/bin/env php
+<?php
+/**
+ * Author: Abel Halo <zxz054321@163.com>
+ */
+
+use App\Injectors\AppInjector;
+use App\Injectors\CliInjector;
+use Phalcon\CLI\Console as ConsoleApp;
+use Phalcon\Di\FactoryDefault\Cli;
+
+require 'bootstrap.php';
+
+define('VERSION', '1.0.0');
+
+/**
+ * Register the autoloader and tell it to register the tasks directory
+ */
+$loader = new \Phalcon\Loader();
+$loader->registerDirs(
+    [
+        ROOT.'/app/Console',
+    ]
+);
+$loader->register();
+
+$di = (new AppInjector(new CLI, $config))->inject();
+$di = (new CliInjector($di, $config))->inject();
+
+//Create a console application
+$console = new ConsoleApp();
+$console->setDI($di);
+
+$di->setShared('console', $console);
+
+/**
+ * Process the console arguments
+ */
+$arguments = [];
+foreach ($argv as $k => $arg) {
+    if ($k == 1) {
+        $arguments['task'] = $arg;
+    } elseif ($k == 2) {
+        $arguments['action'] = $arg;
+    } elseif ($k >= 3) {
+        $arguments['params'][] = $arg;
+    }
+}
+
+// define global constants for the current task and action
+define('CURRENT_TASK', (isset($argv[1]) ? $argv[1] : null));
+define('CURRENT_ACTION', (isset($argv[2]) ? $argv[2] : null));
+
+try {
+    // handle incoming arguments
+    $console->handle($arguments);
+} catch (\Phalcon\Exception $e) {
+    echo $e->getMessage();
+    exit(255);
+}
