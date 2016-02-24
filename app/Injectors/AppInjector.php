@@ -39,7 +39,7 @@ class AppInjector extends Injector
             return $cache;
         };
 
-        $app['store'] = function () use ($config) {
+        $app['db'] = function () use ($config) {
             $connection = new Mysql($config->database->mysql->toArray());
 
             return $connection;
