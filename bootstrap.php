@@ -29,6 +29,11 @@ register_shutdown_function(function () use ($config) {
     }
 });
 
+//Report errors in debug mode only
+if (!$config->debug) {
+    error_reporting(0);
+}
+
 // Creates the autoloader
 $loader = new \Phalcon\Loader();
 
