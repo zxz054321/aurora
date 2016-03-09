@@ -14,7 +14,7 @@ $app = new Micro();
 
 $app['config'] = $config;
 
-(new AppInjector($app, $config))->inject();
+(new AppInjector($app->di, $config))->inject();
 
 require ROOT.'/app/routes.php';
 

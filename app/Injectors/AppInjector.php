@@ -5,6 +5,7 @@
 
 namespace App\Injectors;
 
+use Illuminate\Database\Capsule\Manager as Capsule;
 use Phalcon\Cache\Backend\File as BackFile;
 use Phalcon\Cache\Backend\Libmemcached as BackMemCached;
 use Phalcon\Cache\Frontend\Data as FrontData;
@@ -13,7 +14,7 @@ use Phalcon\Db\Adapter\Pdo\Mysql;
 
 class AppInjector extends Injector
 {
-    public function inject()
+    protected function register()
     {
         $app    = $this->di;
         $config = $this->config;
@@ -45,7 +46,23 @@ class AppInjector extends Injector
             return $connection;
         };
 
-        return $app;
-    }
+        if ($this->config->database->eloquent) {
+            $capsule = new Capsule;
 
+            $capsule->addConnection([
+                'driver'    => 'mysql',
+                'host'      => $this->config->database->mysql->host,
+                'database'  => $this->config->database->mysql->dbname,
+                'username'  => $this->config->database->mysql->username,
+                'password'  => $this->config->database->mysql->password,
+                'charset'   => 'utf8',
+                'collation' => 'utf8_unicode_ci',
+                'prefix'    => '',
+            ]);
+
+            $capsule->setAsGlobal();
+
+            $this->di->set('eloquent', $capsule, true);
+        }
+    }
 }

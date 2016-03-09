@@ -15,11 +15,18 @@ abstract class Injector
     protected $di;
     protected $config;
 
-    public function __construct($di, $config = null)
+    public function __construct(DiInterface $di, $config = null)
     {
         $this->di     = $di;
         $this->config = $config;
     }
 
-    abstract public function inject();
+    public function inject()
+    {
+        $this->register();
+
+        return $this->di;
+    }
+
+    abstract protected function register();
 }
