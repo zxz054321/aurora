@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "f078e9bbecf659cd440e6d9c519e31a4",
-    "content-hash": "ad8382083511794065627ce35f9dfb5d",
+    "hash": "cc57117db2e82b0e8a4652eb2ffdb805",
+    "content-hash": "713b04f5bb94b5aa8c7eeb5f6d395550",
     "packages": [
         {
             "name": "doctrine/inflector",
@@ -76,16 +76,16 @@
         },
         {
             "name": "illuminate/container",
-            "version": "v5.2.19",
+            "version": "v5.2.21",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/container.git",
-                "reference": "834233e20704ec6573593a0a8e8bfe9e28d23b67"
+                "reference": "ba7a8b3c24535ab102ebe9738a0003846c372b95"
             },
             "dist": {
                 "type": "zip",
-                "url": "http://packagist.phpcomposer.com/files/illuminate/container/834233e20704ec6573593a0a8e8bfe9e28d23b67.zip",
-                "reference": "834233e20704ec6573593a0a8e8bfe9e28d23b67",
+                "url": "https://packagist.phpcomposer.com/files/illuminate/container/ba7a8b3c24535ab102ebe9738a0003846c372b95.zip",
+                "reference": "ba7a8b3c24535ab102ebe9738a0003846c372b95",
                 "shasum": ""
             },
             "require": {
@@ -115,20 +115,20 @@
             ],
             "description": "The Illuminate Container package.",
             "homepage": "http://laravel.com",
-            "time": "2016-01-18 22:49:36"
+            "time": "2016-02-22 06:42:06"
         },
         {
             "name": "illuminate/contracts",
-            "version": "v5.2.19",
+            "version": "v5.2.21",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/contracts.git",
-                "reference": "511a6798e097666b95c6ef3f339e386cc006feba"
+                "reference": "eea3cf7ce90651e067a914d16383b019da45fcb5"
             },
             "dist": {
                 "type": "zip",
-                "url": "http://packagist.phpcomposer.com/files/illuminate/contracts/511a6798e097666b95c6ef3f339e386cc006feba.zip",
-                "reference": "511a6798e097666b95c6ef3f339e386cc006feba",
+                "url": "https://packagist.phpcomposer.com/files/illuminate/contracts/eea3cf7ce90651e067a914d16383b019da45fcb5.zip",
+                "reference": "eea3cf7ce90651e067a914d16383b019da45fcb5",
                 "shasum": ""
             },
             "require": {
@@ -157,20 +157,20 @@
             ],
             "description": "The Illuminate Contracts package.",
             "homepage": "http://laravel.com",
-            "time": "2016-01-07 19:57:38"
+            "time": "2016-02-22 09:18:57"
         },
         {
             "name": "illuminate/database",
-            "version": "v5.2.19",
+            "version": "v5.2.21",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/database.git",
-                "reference": "e78709a47c4aeef6470654f8fbb76928c0700eeb"
+                "reference": "8b0068c326652332fd364399f4d8cce894953172"
             },
             "dist": {
                 "type": "zip",
-                "url": "http://packagist.phpcomposer.com/files/illuminate/database/e78709a47c4aeef6470654f8fbb76928c0700eeb.zip",
-                "reference": "e78709a47c4aeef6470654f8fbb76928c0700eeb",
+                "url": "https://packagist.phpcomposer.com/files/illuminate/database/8b0068c326652332fd364399f4d8cce894953172.zip",
+                "reference": "8b0068c326652332fd364399f4d8cce894953172",
                 "shasum": ""
             },
             "require": {
@@ -217,65 +217,20 @@
                 "orm",
                 "sql"
             ],
-            "time": "2016-02-17 17:31:14"
-        },
-        {
-            "name": "illuminate/events",
-            "version": "v5.2.19",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/illuminate/events.git",
-                "reference": "aeebcd54a61ce3bddddcb0273b532256201cd9d1"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "http://packagist.phpcomposer.com/files/illuminate/events/aeebcd54a61ce3bddddcb0273b532256201cd9d1.zip",
-                "reference": "aeebcd54a61ce3bddddcb0273b532256201cd9d1",
-                "shasum": ""
-            },
-            "require": {
-                "illuminate/container": "5.2.*",
-                "illuminate/contracts": "5.2.*",
-                "illuminate/support": "5.2.*",
-                "php": ">=5.5.9"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "5.2-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Illuminate\\Events\\": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Taylor Otwell",
-                    "email": "taylorotwell@gmail.com"
-                }
-            ],
-            "description": "The Illuminate Events package.",
-            "homepage": "http://laravel.com",
-            "time": "2016-01-01 01:00:19"
+            "time": "2016-02-24 15:02:47"
         },
         {
             "name": "illuminate/support",
-            "version": "v5.2.19",
+            "version": "v5.2.21",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/support.git",
-                "reference": "6443a072215137161dcfc56385af95dd6eceaaad"
+                "reference": "6749fab3f3d38d8b15427536a8e7bbdc57497c9e"
             },
             "dist": {
                 "type": "zip",
-                "url": "http://packagist.phpcomposer.com/files/illuminate/support/6443a072215137161dcfc56385af95dd6eceaaad.zip",
-                "reference": "6443a072215137161dcfc56385af95dd6eceaaad",
+                "url": "https://packagist.phpcomposer.com/files/illuminate/support/6749fab3f3d38d8b15427536a8e7bbdc57497c9e.zip",
+                "reference": "6749fab3f3d38d8b15427536a8e7bbdc57497c9e",
                 "shasum": ""
             },
             "require": {
@@ -318,7 +273,7 @@
             ],
             "description": "The Illuminate Support package.",
             "homepage": "http://laravel.com",
-            "time": "2016-02-16 14:39:24"
+            "time": "2016-02-22 20:29:02"
         },
         {
             "name": "nesbot/carbon",
@@ -428,7 +383,7 @@
         },
         {
             "name": "symfony/translation",
-            "version": "v3.0.2",
+            "version": "v3.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/translation.git",
@@ -436,7 +391,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "http://packagist.phpcomposer.com/files/symfony/translation/2de0b6f7ebe43cffd8a06996ebec6aab79ea9e91.zip",
+                "url": "https://packagist.phpcomposer.com/files/symfony/translation/2de0b6f7ebe43cffd8a06996ebec6aab79ea9e91.zip",
                 "reference": "2de0b6f7ebe43cffd8a06996ebec6aab79ea9e91",
                 "shasum": ""
             },
