@@ -5,7 +5,8 @@
 return [
     'debug'    => false,
     'database' => [
-        'mysql' => [
+        'eloquent' => false,
+        'mysql'    => [
             'charset' => 'utf8',
         ],
     ],
