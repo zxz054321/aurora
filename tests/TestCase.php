@@ -11,31 +11,33 @@ use Phalcon\Test\UnitTestCase as PhalconTestCase;
 abstract class TestCase extends PhalconTestCase
 {
     /**
-     * @var Micro
-     */
-    protected $app;
-
-    /**
      * @var bool
      */
     private $_loaded = false;
 
-    public function setUp(\Phalcon\DiInterface $di = null, \Phalcon\Config $config = null)
+    public function setUp()
     {
-        $di = Di::getDefault();
-        $di = (new AppInjector($di, $di['config']))->inject();
+        $di = (new AppInjector(app(), config()))->inject();
 
-        //create app instance
-        $app = new Micro();
-        $app->setDI($di);
+        // Set the URL
+        $di->set(
+            'url',
+            function () {
+                $url = new Url();
+                $url->setBaseUri('/');
 
-        require ROOT.'/app/routes.php';
+                return $url;
+            }
+        );
 
-        $this->app = $app;
+        $di->set(
+            'escaper',
+            function () {
+                return new Escaper();
+            }
+        );
 
-        // get any DI components here. If you have a config, be sure to pass it to the parent
-        parent::setUp($di);
-
+        $this->di      = $di;
         $this->_loaded = true;
     }
 

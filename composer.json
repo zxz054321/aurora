@@ -17,5 +17,10 @@
   "require-dev": {
     "phpunit/phpunit": "~4.5",
     "phalcon/incubator": "^2.0"
+  },
+  "autoload": {
+    "files": [
+      "app/helpers.php"
+    ]
   }
 }
