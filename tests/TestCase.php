@@ -4,23 +4,56 @@
  */
 
 use App\Injectors\AppInjector;
-use Phalcon\DI;
+use Phalcon\Config;
+use Phalcon\Di;
+use Phalcon\Di\FactoryDefault;
+use Phalcon\Escaper;
+use Phalcon\Loader;
+use Phalcon\Mvc\Application as PhApplication;
+use Phalcon\Mvc\Dispatcher as PhDispatcher;
 use Phalcon\Mvc\Micro;
-use Phalcon\Test\UnitTestCase as PhalconTestCase;
+use Phalcon\Mvc\Model\Manager as PhModelManager;
+use Phalcon\Mvc\Url;
+use Phalcon\Test\FunctionalTestCase;
 
-abstract class TestCase extends PhalconTestCase
+abstract class TestCase extends FunctionalTestCase
 {
-    /**
-     * @var bool
-     */
     private $_loaded = false;
 
     public function setUp()
     {
-        $di = (new AppInjector(app(), config()))->inject();
+        $this->checkExtension('phalcon');
 
+        $this->bootstrap();
+
+        $this->setupUnitTest();
+        $this->setupModelTest();
+        $this->setupFunctionalTest();
+
+        $this->_loaded = true;
+    }
+
+    protected function bootstrap()
+    {
+        ini_set('display_errors', 1);
+        error_reporting(E_ALL);
+
+        $loader = new Loader();
+        $loader->registerDirs([
+            ROOT.'/tests/',
+        ]);
+
+        // Reset the DI container
+        Di::reset();
+
+        $this->di = require ROOT.'/bootstrap/app.php';
+        $this->di = (new AppInjector($this->di, config()))->inject();
+    }
+
+    protected function setupUnitTest()
+    {
         // Set the URL
-        $di->set(
+        $this->di->set(
             'url',
             function () {
                 $url = new Url();
@@ -30,15 +63,49 @@ abstract class TestCase extends PhalconTestCase
             }
         );
 
-        $di->set(
+        $this->di->set(
             'escaper',
             function () {
                 return new Escaper();
             }
         );
+    }
 
-        $this->di      = $di;
-        $this->_loaded = true;
+    protected function setupModelTest()
+    {
+        // Set Models manager
+        $this->di->set(
+            'modelsManager',
+            function () {
+                return new PhModelManager();
+            }
+        );
+
+        // Set Models metadata
+        $this->di->set(
+            'modelsMetadata',
+            function () {
+                return new PhMetadataMemory();
+            }
+        );
+    }
+
+    protected function setupFunctionalTest()
+    {
+        // Set the dispatcher
+        $this->di->setShared(
+            'dispatcher',
+            function () {
+                $dispatcher = new PhDispatcher();
+                $dispatcher->setControllerName('test');
+                $dispatcher->setActionName('empty');
+                $dispatcher->setParams([]);
+
+                return $dispatcher;
+            }
+        );
+
+        $this->application = new PhApplication($this->di);
     }
 
     /**

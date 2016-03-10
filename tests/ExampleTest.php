@@ -8,13 +8,13 @@ use Phalcon\Mvc\Url;
  */
 class ExampleTest extends TestCase
 {
-    public function testWelcome()
+    public function testShouldSeeWelcome()
     {
         $provider = Request::getProvider();
         $response = $provider->get('http://localhost/');
 
         $this->assertEquals(true,
-            str_contains($response->body, 'I\'m Lightning!')
+            str_contains($response->body, "I'm Lightning!")
         );
     }
 }

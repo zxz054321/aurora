@@ -7,10 +7,10 @@ use App\Injectors\AppInjector;
 use Phalcon\Di;
 use Phalcon\Mvc\Micro;
 
-require '../bootstrap/app.php';
+require '../bootstrap/autoload.php';
 
-$di = Di::getDefault();
-$di = (new AppInjector($di, $di['config']))->inject();
+$di = require '../bootstrap/app.php';
+$di = (new AppInjector($di, $di->get('config')))->inject();
 
 $app = new Micro();
 $app->setDI($di);

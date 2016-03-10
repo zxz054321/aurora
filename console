@@ -14,7 +14,9 @@ define('VERSION', '0.1.0');
 /**
  * Register the autoloader and tell it to register the tasks directory
  */
-$loader = require 'bootstrap/app.php';
+$loader = require 'bootstrap/autoload.php';
+require 'bootstrap/app.php';
+
 $loader->registerDirs(
     [
         ROOT.'/app/Console',
