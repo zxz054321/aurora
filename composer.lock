@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "d9da6ff5c5efc32c0214537dd965e854",
-    "content-hash": "107a281ae032fbceb30ab737f1184257",
+    "hash": "e89337a74dc69d90826eff9c6f1f051e",
+    "content-hash": "1b12eda023cf6e745dce246e29f4f778",
     "packages": [
         {
             "name": "doctrine/inflector",
@@ -218,6 +218,51 @@
                 "sql"
             ],
             "time": "2016-02-24 15:02:47"
+        },
+        {
+            "name": "illuminate/events",
+            "version": "v5.2.21",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/illuminate/events.git",
+                "reference": "aeebcd54a61ce3bddddcb0273b532256201cd9d1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://packagist.phpcomposer.com/files/illuminate/events/aeebcd54a61ce3bddddcb0273b532256201cd9d1.zip",
+                "reference": "aeebcd54a61ce3bddddcb0273b532256201cd9d1",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/container": "5.2.*",
+                "illuminate/contracts": "5.2.*",
+                "illuminate/support": "5.2.*",
+                "php": ">=5.5.9"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "5.2-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Illuminate\\Events\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Taylor Otwell",
+                    "email": "taylorotwell@gmail.com"
+                }
+            ],
+            "description": "The Illuminate Events package.",
+            "homepage": "http://laravel.com",
+            "time": "2016-01-01 01:00:19"
         },
         {
             "name": "illuminate/support",

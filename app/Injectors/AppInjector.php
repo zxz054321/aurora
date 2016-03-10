@@ -5,7 +5,9 @@
 
 namespace App\Injectors;
 
+use Illuminate\Container\Container;
 use Illuminate\Database\Capsule\Manager as Capsule;
+use Illuminate\Events\Dispatcher;
 use Phalcon\Cache\Backend\File as BackFile;
 use Phalcon\Cache\Backend\Libmemcached as BackMemCached;
 use Phalcon\Cache\Frontend\Data as FrontData;
@@ -60,9 +62,11 @@ class AppInjector extends Injector
                 'prefix'    => '',
             ]);
 
+            $capsule->setEventDispatcher(new Dispatcher(new Container));
             $capsule->setAsGlobal();
+            $capsule->bootEloquent();
 
-            $this->di->set('eloquent', $capsule, true);
+            $app->set('eloquent', $capsule, true);
         }
     }
 }
