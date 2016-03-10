@@ -9,6 +9,16 @@ use Phalcon\Mvc\Controller as Base;
 
 class Controller extends Base
 {
+    public function initialize()
+    {
+        //
+    }
+
+    public function onConstruct()
+    {
+        //
+    }
+
     protected function json($content)
     {
         $this->response->setContentType('application/json');
