@@ -4,17 +4,16 @@
  */
 
 use App\Injectors\AppInjector;
-use App\Injectors\CliInjector;
+use Phalcon\Di;
 use Phalcon\Mvc\Micro;
 
-require '../bootstrap.php';
+require '../bootstrap/app.php';
 
-//create app instance
+$di = Di::getDefault();
+$di = (new AppInjector($di, $di['config']))->inject();
+
 $app = new Micro();
-
-$app['config'] = $config;
-
-(new AppInjector($app->di, $config))->inject();
+$app->setDI($di);
 
 require ROOT.'/app/routes.php';
 

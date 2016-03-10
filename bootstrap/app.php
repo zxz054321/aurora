@@ -4,9 +4,10 @@
  */
 
 use Phalcon\Config;
+use Phalcon\Di;
 use Phalcon\Logger\Adapter\File as FileAdapter;
 
-define('ROOT', __DIR__);
+define('ROOT', realpath(__DIR__.'/../'));
 
 require ROOT.'/vendor/autoload.php';
 
@@ -15,6 +16,10 @@ $config = new Config(array_replace_recursive(
     require ROOT.'/config.php',
     require ROOT.'/_'
 ));
+
+$di = new Di\FactoryDefault();
+$di->set('config', $config);
+Di::setDefault($di);
 
 //global error handler & logger
 register_shutdown_function(function () use ($config) {
@@ -44,3 +49,5 @@ $loader->registerNamespaces([
 
 // register autoloader
 $loader->register();
+
+return $loader;

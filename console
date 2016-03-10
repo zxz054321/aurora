@@ -9,14 +9,12 @@ use App\Injectors\CliInjector;
 use Phalcon\CLI\Console as ConsoleApp;
 use Phalcon\Di\FactoryDefault\Cli;
 
-require 'bootstrap.php';
-
 define('VERSION', '0.1.0');
 
 /**
  * Register the autoloader and tell it to register the tasks directory
  */
-$loader = new \Phalcon\Loader();
+$loader = require 'bootstrap/app.php';
 $loader->registerDirs(
     [
         ROOT.'/app/Console',
