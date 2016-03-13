@@ -12,5 +12,5 @@ $appController->get('/', 'hi');
 $app->mount($appController);
 
 $app->notFound(function () {
-    abort(404);
+    return abort(404);
 });

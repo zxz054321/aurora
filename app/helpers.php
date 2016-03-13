@@ -55,7 +55,7 @@ function abort($code, $message = '')
 
     if ($code == 404) {
         $response->setStatusCode($code, 'Not Found');
-        $response->setContent($message?:'This is crazy, but this page was not found!');
+        $response->setContent($message ?: 'This is crazy, but this page was not found!');
     } else {
         $response->setStatusCode($code);
 
@@ -64,5 +64,5 @@ function abort($code, $message = '')
         }
     }
 
-    $response->send();
+    return $response;
 }
