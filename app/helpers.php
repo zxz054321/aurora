@@ -4,6 +4,7 @@
  */
 use Phalcon\Config;
 use Phalcon\Di;
+use Phalcon\Http\Response;
 
 /**
  * Get the available container instance.
@@ -38,4 +39,30 @@ function config($key = null)
     }
 
     return app('config')->get($key);
+}
+
+/**
+ * Return an Http Exception
+ *
+ * @param  int $code
+ * @param  string $message
+ * @return void
+ */
+function abort($code, $message = '')
+{
+    /** @var Response $response */
+    $response = app('response');
+
+    if ($code == 404) {
+        $response->setStatusCode($code, 'Not Found');
+        $response->setContent($message?:'This is crazy, but this page was not found!');
+    } else {
+        $response->setStatusCode($code);
+
+        if (!$message) {
+            $response->setContent($message);
+        }
+    }
+
+    $response->send();
 }
