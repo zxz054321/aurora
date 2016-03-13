@@ -18,21 +18,26 @@ class AppInjector extends Injector
 {
     protected function register()
     {
-        $app    = $this->di;
-        $config = $this->config;
+        $this->registerCache();
+        $this->registerDatabase();
+    }
 
-        $app['cache'] = function () use ($app, $config) {
-            switch ($config->cache->driver) {
+    protected function registerCache()
+    {
+        $this->di->set('cache', function () {
+            $config = config('cache');
+
+            switch ($config->driver) {
                 case 'memcached':
                     $cache = new BackMemCached(
                         new FrontData(["lifetime" => 7 * 24 * 3600]),
-                        ["servers" => $config->cache->memcached->toArray()]
+                        ["servers" => $config->memcached->toArray()]
                     );
                     break;
                 case 'file':
                     $cache = new BackFile(
                         new FrontOutput(["lifetime" => 6 * 3600]),
-                        ['cacheDir' => $config->cache->file->dir]
+                        ['cacheDir' => $config->file->dir]
                     );
                     break;
                 default:
@@ -40,23 +45,28 @@ class AppInjector extends Injector
             }
 
             return $cache;
-        };
+        });
+    }
 
-        $app['db'] = function () use ($config) {
-            $connection = new Mysql($config->database->mysql->toArray());
+    protected function registerDatabase()
+    {
+        $config = config('database');
+
+        $this->di->set('db', function () use ($config) {
+            $connection = new Mysql($config->mysql->toArray());
 
             return $connection;
-        };
+        });
 
-        if ($this->config->database->eloquent) {
+        if ($config->eloquent) {
             $capsule = new Capsule;
 
             $capsule->addConnection([
                 'driver'    => 'mysql',
-                'host'      => $this->config->database->mysql->host,
-                'database'  => $this->config->database->mysql->dbname,
-                'username'  => $this->config->database->mysql->username,
-                'password'  => $this->config->database->mysql->password,
+                'host'      => $config->mysql->host,
+                'database'  => $config->mysql->dbname,
+                'username'  => $config->mysql->username,
+                'password'  => $config->mysql->password,
                 'charset'   => 'utf8',
                 'collation' => 'utf8_unicode_ci',
                 'prefix'    => '',
@@ -66,7 +76,7 @@ class AppInjector extends Injector
             $capsule->setAsGlobal();
             $capsule->bootEloquent();
 
-            $app->set('eloquent', $capsule, true);
+            $this->di->set('eloquent', $capsule, true);
         }
     }
 }
