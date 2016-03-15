@@ -46,7 +46,7 @@ function config($key = null)
  *
  * @param  int $code
  * @param  string $message
- * @return void
+ * @return Response
  */
 function abort($code, $message = '')
 {
@@ -59,7 +59,7 @@ function abort($code, $message = '')
     } else {
         $response->setStatusCode($code);
 
-        if (!$message) {
+        if ($message) {
             $response->setContent($message);
         }
     }
