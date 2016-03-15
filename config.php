@@ -4,6 +4,7 @@
  */
 return [
     'debug'    => false,
+
     'database' => [
         'eloquent' => false,
         'mysql'    => [

@@ -4,6 +4,7 @@
  */
 return [
     'debug'    => true,
+
     'cache'    => [
         'driver'    => 'file',
         'file'      => [
@@ -17,6 +18,7 @@ return [
             ],
         ],
     ],
+
     'database' => [
         'mysql' => [
             'host'     => '127.0.0.1',
