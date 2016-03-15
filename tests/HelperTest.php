@@ -11,7 +11,10 @@ class HelperTest extends TestCase
     public function testApp()
     {
         $this->assertInstanceOf(DiInterface::class, app());
+    }
 
+    public function testConfig()
+    {
         $this->assertInstanceOf(Config::class, config());
         $this->assertEquals(true, is_bool(config('debug')));
         $this->assertEquals(true, is_bool(config('database')->eloquent));

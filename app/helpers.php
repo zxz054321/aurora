@@ -12,8 +12,9 @@ use Phalcon\Http\Response;
  * @param  string $make
  * @param  array $parameters
  * @return mixed|Di
+ * @throws Phalcon\Di\Exception
  */
-function app($make = null, $parameters = null)
+function app($make = null, array $parameters = null)
 {
     $di = Di::getDefault();
 
