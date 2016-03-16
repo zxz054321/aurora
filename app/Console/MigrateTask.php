@@ -6,12 +6,12 @@
 class MigrateTask extends \Phalcon\CLI\Task
 {
     protected $migrations = [
-        //'users',
+//        'users',
     ];
 
     public function mainAction()
     {
-        if (config('debug')) {
+        if (!config('debug')) {
             $input = console()->confirm(
                 "Application May In Production!\n".
                 'Do you really wish to run this command?'
@@ -24,6 +24,8 @@ class MigrateTask extends \Phalcon\CLI\Task
 
         foreach ($this->migrations as $migration) {
             require ROOT."/database/migrations/$migration.php";
+
+            console()->out('Migrated: '.$migration);
         }
     }
 }
