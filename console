@@ -9,13 +9,14 @@ use App\Injectors\CliInjector;
 use Phalcon\CLI\Console as ConsoleApp;
 use Phalcon\Di\FactoryDefault\Cli;
 
-define('VERSION', '0.1.0');
+define('VERSION', '0.2.0');
 
-/**
+/*
  * Register the autoloader and tell it to register the tasks directory
  */
 $loader = require 'bootstrap/autoload.php';
 require 'bootstrap/app.php';
+require APP_PATH.'/console-helpers.php';
 
 $loader->registerDirs(
     [
@@ -24,10 +25,15 @@ $loader->registerDirs(
 );
 $loader->register();
 
+/*
+ * Inject dependencies
+ */
 $di = (new AppInjector(new CLI, $config))->inject();
 $di = (new CliInjector($di, $config))->inject();
 
-//Create a console application
+/*
+ * Create a console application
+ */
 $console = new ConsoleApp();
 $console->setDI($di);
 
@@ -47,12 +53,16 @@ foreach ($argv as $k => $arg) {
     }
 }
 
-// define global constants for the current task and action
+/*
+ * Define global constants for the current task and action
+ */
 define('CURRENT_TASK', (isset($argv[1]) ? $argv[1] : null));
 define('CURRENT_ACTION', (isset($argv[2]) ? $argv[2] : null));
 
+/*
+ * Handle incoming arguments
+ */
 try {
-    // handle incoming arguments
     $console->handle($arguments);
 } catch (\Phalcon\Exception $e) {
     echo $e->getMessage();
