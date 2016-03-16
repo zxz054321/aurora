@@ -7,22 +7,23 @@ use Phalcon\Config;
 use Phalcon\Di;
 use Phalcon\Logger\Adapter\File as FileAdapter;
 
-
-// Load config first =======================
+/*
+ * Load config first
+ */
 $config = new Config(array_replace_recursive(
-    require ROOT.'/config.php',
+    require CONFIG_PATH.'/config.php',
     require ROOT.'/_'
 ));
 
-
-// Set up DI ===================
-$di = new Di\FactoryDefault();
+/*
+ * Set up Dependency Injector
+ */
+$di = Di::getDefault();
 $di->set('config', $config);
 
-Di::setDefault($di);
-
-
-// Global error handler & logger ======================
+/*
+ * Global error handler & logger
+ */
 register_shutdown_function(function () use ($config) {
     if (!is_null($error = error_get_last())) {
         if (!$config->debug && $error['type'] >= E_NOTICE) {

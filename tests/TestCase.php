@@ -3,7 +3,7 @@
  * Author: Abel Halo <zxz054321@163.com>
  */
 
-use App\Injectors\AppInjector;
+use App\Providers\AppServiceProvider;
 use Phalcon\Config;
 use Phalcon\Di;
 use Phalcon\Di\FactoryDefault;
@@ -45,9 +45,10 @@ abstract class TestCase extends FunctionalTestCase
 
         // Reset the DI container
         Di::reset();
+        Di::setDefault(new Di\FactoryDefault);
 
         $this->di = require ROOT.'/bootstrap/app.php';
-        $this->di = (new AppInjector($this->di, config()))->inject();
+        $this->di = (new AppServiceProvider($this->di, config()))->inject();
     }
 
     protected function setupUnitTest()

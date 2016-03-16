@@ -3,11 +3,11 @@
  * Author: Abel Halo <zxz054321@163.com>
  */
 
-namespace App\Injectors;
+namespace App\Providers;
 
 use Phalcon\DiInterface;
 
-abstract class Injector
+abstract class ServiceProvider
 {
     /**
      * @var DiInterface

@@ -3,7 +3,7 @@
  * Author: Abel Halo <zxz054321@163.com>
  */
 
-namespace App\Injectors;
+namespace App\Providers;
 
 use Illuminate\Container\Container;
 use Illuminate\Database\Capsule\Manager as Capsule;
@@ -14,7 +14,11 @@ use Phalcon\Cache\Frontend\Data as FrontData;
 use Phalcon\Cache\Frontend\Output as FrontOutput;
 use Phalcon\Db\Adapter\Pdo\Mysql;
 
-class AppInjector extends Injector
+/**
+ * This will always run
+ * @package App\Providers
+ */
+class AppServiceProvider extends ServiceProvider
 {
     protected function register()
     {
@@ -52,12 +56,6 @@ class AppInjector extends Injector
     {
         $config = config('database');
 
-        $this->di->set('db', function () use ($config) {
-            $connection = new Mysql($config->mysql->toArray());
-
-            return $connection;
-        });
-
         if ($config->eloquent) {
             $capsule = new Capsule;
 
@@ -69,7 +67,7 @@ class AppInjector extends Injector
                 'password'  => $config->mysql->password,
                 'charset'   => 'utf8',
                 'collation' => 'utf8_unicode_ci',
-                'prefix'    => '',
+                'prefix'    => $config->mysql->prefix,
             ]);
 
             $capsule->setEventDispatcher(new Dispatcher(new Container));
@@ -77,6 +75,12 @@ class AppInjector extends Injector
             $capsule->bootEloquent();
 
             $this->di->set('eloquent', $capsule, true);
+        } else {
+            $this->di->set('db', function () use ($config) {
+                $connection = new Mysql($config->mysql->toArray());
+
+                return $connection;
+            });
         }
     }
 }

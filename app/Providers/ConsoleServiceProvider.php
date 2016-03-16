@@ -3,13 +3,13 @@
  * Author: Abel Halo <zxz054321@163.com>
  */
 
-namespace App\Injectors;
+namespace App\Providers;
 
 /**
  * Runs only in the command line environment
- * @package App\Injectors
+ * @package App\Providers
  */
-class CliInjector extends Injector
+class ConsoleServiceProvider extends ServiceProvider
 {
     protected function register()
     {

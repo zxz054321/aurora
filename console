@@ -4,19 +4,20 @@
  * Author: Abel Halo <zxz054321@163.com>
  */
 
-use App\Injectors\AppInjector;
-use App\Injectors\CliInjector;
+use App\Providers\AppServiceProvider;
+use App\Providers\ConsoleServiceProvider;
 use Phalcon\CLI\Console as ConsoleApp;
+use Phalcon\Config;
+use Phalcon\Di;
 use Phalcon\Di\FactoryDefault\Cli;
 
 define('VERSION', '0.2.0');
 
 /*
- * Register the autoloader and tell it to register the tasks directory
+ * Register the autoloader and
+ * tell it to register the tasks directory
  */
 $loader = require 'bootstrap/autoload.php';
-require 'bootstrap/app.php';
-require APP_PATH.'/console-helpers.php';
 
 $loader->registerDirs(
     [
@@ -25,11 +26,21 @@ $loader->registerDirs(
 );
 $loader->register();
 
+require APP_PATH.'/console-helpers.php';
+
 /*
  * Inject dependencies
  */
-$di = (new AppInjector(new CLI, $config))->inject();
-$di = (new CliInjector($di, $config))->inject();
+Di::setDefault(new CLI);
+$di = require ROOT.'/bootstrap/app.php';
+
+$di->get('config')
+    ->merge(new Config(
+        require CONFIG_PATH.'/console.php'
+    ));
+
+$di = (new AppServiceProvider($di, $di->get('config')))->inject();
+$di = (new ConsoleServiceProvider($di, $di->get('config')))->inject();
 
 /*
  * Create a console application
