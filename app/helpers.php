@@ -67,3 +67,25 @@ function abort($code, $message = '')
 
     return $response;
 }
+
+/**
+ * Get / set the specified session value.
+ *
+ * If an array is passed as the key, we will assume you want to set an array of values.
+ *
+ * @param  array|string $key
+ * @param  mixed $default
+ * @return mixed
+ */
+function session($key = null, $default = null)
+{
+    if (is_null($key)) {
+        return app('session');
+    }
+
+    if (is_array($key)) {
+        return app('session')->set(key($key), current($key));
+    }
+
+    return app('session')->get($key, $default);
+}

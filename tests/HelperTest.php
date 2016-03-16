@@ -19,4 +19,21 @@ class HelperTest extends TestCase
         $this->assertEquals(true, is_bool(config('debug')));
         $this->assertEquals(true, is_bool(config('database')->eloquent));
     }
+
+    public function testAbort()
+    {
+        $this->assertInstanceOf(Phalcon\Http\Response::class, abort(404));
+    }
+
+    public function testSession()
+    {
+        $key = 'test'.time();
+        $val = md5($key);
+        session([$key => $val]);
+
+        $this->assertInstanceOf(Phalcon\Session\Adapter::class, session());
+        $this->assertEquals($val, session($key));
+        $this->assertEquals(null, session($key.'none'));
+        $this->assertEquals('abc', session($key.'none', 'abc'));
+    }
 }
