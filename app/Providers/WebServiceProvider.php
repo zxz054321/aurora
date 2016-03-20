@@ -13,6 +13,11 @@ class WebServiceProvider extends ServiceProvider
 {
     protected function register()
     {
-        //
+        $this->di->set('view', function () {
+            $view = new \Phalcon\Mvc\View\Simple();
+            $view->setViewsDir(VIEW_PATH.'/');
+
+            return $view;
+        });
     }
 }

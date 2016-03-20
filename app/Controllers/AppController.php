@@ -9,6 +9,18 @@ class AppController extends Controller
 {
     public function hi()
     {
-        require ROOT.'/resources/views/welcome.php';
+        $h = date('H');
+
+        if ($h < 12) {
+            $text = 'morning';
+        } else {
+            if ($h < 18) {
+                $text = 'afternoon';
+            } else {
+                $text = 'evening';
+            }
+        }
+
+        echo $this->view->render('welcome', ['greet' => $text]);
     }
 }
