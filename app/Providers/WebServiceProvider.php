@@ -13,5 +13,6 @@ class WebServiceProvider extends ServiceProvider
 {
     protected function register()
     {
+        //
     }
 }

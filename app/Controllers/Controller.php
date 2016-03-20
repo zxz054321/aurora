@@ -19,6 +19,11 @@ class Controller extends Base
         //
     }
 
+    protected function dontProfile()
+    {
+        define('DONT_PROFILE', true);
+    }
+
     protected function json($content)
     {
         $this->response->setContentType('application/json');

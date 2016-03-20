@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "7ea579ec13c5052209476fbf21642647",
-    "content-hash": "61915a7b72fe363d6a61ec8197ece686",
+    "hash": "9c9fa737ab727c7198a928b831145a4c",
+    "content-hash": "3917e7575c2199984a2da17bd83dea54",
     "packages": [
         {
             "name": "doctrine/inflector",
@@ -73,6 +73,61 @@
                 "string"
             ],
             "time": "2015-11-06 14:35:42"
+        },
+        {
+            "name": "fabfuel/prophiler",
+            "version": "1.5.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/fabfuel/prophiler.git",
+                "reference": "bd0746ce5317167193c1d0ff4ae5e1486dcc846a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://packagist.phpcomposer.com/files/fabfuel/prophiler/bd0746ce5317167193c1d0ff4ae5e1486dcc846a.zip",
+                "reference": "bd0746ce5317167193c1d0ff4ae5e1486dcc846a",
+                "shasum": ""
+            },
+            "require": {
+                "php": "~5.4",
+                "psr/log": "~1.0"
+            },
+            "require-dev": {
+                "container-interop/container-interop": "^1.1",
+                "doctrine/orm": "~2.4",
+                "elasticsearch/elasticsearch": "~1.3",
+                "erusev/parsedown": "~1.5",
+                "fabfuel/mongo": "~0.4",
+                "phalcon/devtools": "1.3.*@dev",
+                "phpmd/phpmd": "~1.0",
+                "phpunit/phpunit": "~4.0",
+                "squizlabs/php_codesniffer": "~1.0"
+            },
+            "suggest": {
+                "fabfuel/mongo": "ORM for Mongo, supports lazy loading, object references, subdocument classes and their collections.",
+                "phalcon/devtools": "This tools provide you useful scripts, helping to develop applications that use with Phalcon."
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Fabfuel\\Prophiler\\": "src/"
+                },
+                "classmap": [
+                    "tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Fabian Fuelling",
+                    "email": "fabian@fabfuel.de"
+                }
+            ],
+            "description": "PHP Profiler & Developer Toolbar built for Phalcon",
+            "time": "2015-10-25 19:15:04"
         },
         {
             "name": "illuminate/container",
@@ -417,6 +472,44 @@
                 "time"
             ],
             "time": "2015-11-04 20:07:17"
+        },
+        {
+            "name": "psr/log",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/php-fig/log.git",
+                "reference": "fe0936ee26643249e916849d48e3a51d5f5e278b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://packagist.phpcomposer.com/files/php-fig/log/fe0936ee26643249e916849d48e3a51d5f5e278b.zip",
+                "reference": "fe0936ee26643249e916849d48e3a51d5f5e278b",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Psr\\Log\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "PHP-FIG",
+                    "homepage": "http://www.php-fig.org/"
+                }
+            ],
+            "description": "Common interface for logging libraries",
+            "keywords": [
+                "log",
+                "psr",
+                "psr-3"
+            ],
+            "time": "2012-12-21 11:40:51"
         },
         {
             "name": "seld/cli-prompt",
