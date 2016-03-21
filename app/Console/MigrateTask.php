@@ -23,6 +23,7 @@ class MigrateTask extends \Phalcon\CLI\Task
         }
 
         foreach ($this->migrations as $migration) {
+            /** @noinspection PhpIncludeInspection */
             require ROOT."/database/migrations/$migration.php";
 
             console()->out('Migrated: '.$migration);

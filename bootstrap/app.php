@@ -26,6 +26,7 @@ $di->set('config', $config);
  */
 register_shutdown_function(function () use ($config) {
     if (!is_null($error = error_get_last())) {
+        /** @noinspection PhpUndefinedFieldInspection */
         if (!$config->debug && $error['type'] >= E_NOTICE) {
             return;
         }
@@ -37,6 +38,7 @@ register_shutdown_function(function () use ($config) {
 });
 
 // Report errors in debug mode only
+/** @noinspection PhpUndefinedFieldInspection */
 if (!$config->debug) {
     error_reporting(0);
 }

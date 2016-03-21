@@ -17,6 +17,7 @@ class HelperTest extends TestCase
     {
         $this->assertInstanceOf(Config::class, config());
         $this->assertEquals(true, is_bool(config('debug')));
+        /** @noinspection PhpUndefinedFieldInspection */
         $this->assertEquals(true, is_bool(config('database')->eloquent));
     }
 

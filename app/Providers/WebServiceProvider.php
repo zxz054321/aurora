@@ -5,6 +5,8 @@
 
 namespace App\Providers;
 
+use Phalcon\Mvc\View\Simple;
+
 /**
  * Runs only in web environment
  * @package App\Providers
@@ -14,7 +16,7 @@ class WebServiceProvider extends ServiceProvider
     protected function register()
     {
         $this->di->set('view', function () {
-            $view = new \Phalcon\Mvc\View\Simple();
+            $view = new Simple();
             $view->setViewsDir(VIEW_PATH.'/');
 
             return $view;
