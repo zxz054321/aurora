@@ -5,6 +5,7 @@
 
 namespace App\Providers;
 
+use Exception;
 use Illuminate\Container\Container;
 use Illuminate\Database\Capsule\Manager as Capsule;
 use Illuminate\Events\Dispatcher;
