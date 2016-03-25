@@ -1,6 +1,6 @@
 ## Lightning (PHP Framework)
 
-Lightning is a high performance framework for web artisans (based on Phalcon)
+Lightning is a high performance framework that sits on top of Phalcon. It's for web artisans.
 
 > We believe development must be an enjoyable, creative experience to be
 > truly fulfilling. Laravel attempts to take the pain out of development
