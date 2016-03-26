@@ -20,6 +20,19 @@ The high performance version of Laravel is Lumen, but it’s not good/fast enoug
  - Useful helper functions
  - More to write...
 
+### Requirements
+
+- PHP >= 5.5
+- Phalcon PHP Extension
+
+### Installation
+
+Installing by the Composer
+
+    composer install
+
+Then rename `_example.php` to `_`
+
 ### Documentation
 
 Sorry, I don't have enough time to write documentation
