@@ -9,9 +9,10 @@ class AppController extends Controller
 {
     public function hi()
     {
-        echo $this->view->render('welcome', [
-            'motto'  => 'If I have seen further, it is by standing on the shoulders of giants.',
-            'author' => 'Isaac Newton',
-        ]);
+        return <<<EOF
+If I have seen further, it is by standing on the shoulders of giants.
+by Isaac Newton
+
+EOF;
     }
 }

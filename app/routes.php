@@ -6,7 +6,7 @@
 use Phalcon\Mvc\Micro\Collection as MicroCollection;
 
 $appController = new MicroCollection();
-$appController->setHandler(App\Controllers\AppController::class, true);
+$appController->setHandler(App\Controllers\AppController::class);
 $appController->get('/', 'hi');
 
 $app->mount($appController);

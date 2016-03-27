@@ -18,10 +18,6 @@ if (!defined('CONFIG_PATH')) {
     define('CONFIG_PATH', ROOT.'/config');
 }
 
-if (!defined('VIEW_PATH')) {
-    define('VIEW_PATH', ROOT.'/resources/views');
-}
-
 /*
  * Autoloader
  */
