@@ -10,6 +10,10 @@ Lightning is a high performance framework that sits on top of Phalcon. It's for 
 
 The high performance version of Laravel is Lumen, but it’s not good/fast enough. Lightning is trying to be a fast PHP micro-framework with elegant syntax. Laravel gave me a lot of inspiration, so you may find she a bit like Laravel.
 
+**What, not fast enough? Still looking for extremely high performance solution?**
+
+Check the `swoole` branch (build for frenzied performance)
+
 ### Features
 
  - Optimized for high performance
@@ -18,7 +22,7 @@ The high performance version of Laravel is Lumen, but it’s not good/fast enoug
  - Laravel's database agnostic migrations and schema builder
  - Laravel Elixir provides a clean, fluent API for defining basic Gulp tasks.
  - Useful helper functions
- - More to write...
+ - *More to write...*
 
 ### Requirements
 
