@@ -10,21 +10,8 @@ class FlyTask extends \Phalcon\CLI\Task
 {
     protected $debug, $ip, $port;
 
-    /*
-     * Worker进程不得共用同一个Redis或MySQL等网络服务客户端，Redis/MySQL创建连接的相关代码可以放到onWorkerStart回调函数中
-     * 在swoole_server中，应当在onWorkerStart中创建连接对象
-在swoole_process中，应当在swoole_process->start后，子进程回调函数中创建连接对象
-    //必须在onWorkerStart回调中创建redis/mysql连接
-$serv->on('workerstart', function($serv, $id) {
-    $redis = new redis;
-    $redis->connect('127.0.0.1', 6379);
-    $serv->redis = $redis;
-});
-     */
     public function mainAction()
     {
-//        chroot(ROOT);
-
         $this->bootstrap();
         $this->serve();
     }
