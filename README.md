@@ -1,8 +1,8 @@
 ## Lightning (PHP Framework)
 
-Lightning 是一个建立在 Phalcon 之上的高性能框架，专为 Web 艺术家打造。
+Lightning 是一个建立在 Phalcon 之上的高性能框架，专为 Web 艺术家打造。她考虑了常见的 Web 业务需求，七十二变可大可小——既可用于开发CMS之类的大型系统，也适用于规模较小的 API 接口、微服务。
 
-Lightning is a high performance framework that sits on top of Phalcon. It's for web artisans.
+Lightning is a high performance framework that sits on top of Phalcon. It's for web artisans. In consideration of the popular Web business needs, Lightning is so flexible that is capable of the development of large systems (CMS, etc) or smaller systems (API services, micro-services, etc)
 
 > We believe development must be an enjoyable, creative experience to be
 > truly fulfilling. Laravel attempts to take the pain out of development
