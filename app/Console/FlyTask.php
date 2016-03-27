@@ -20,10 +20,6 @@ class FlyTask extends \Phalcon\CLI\Task
     {
         console()->out('Bootstrapping...');
 
-        config()->merge(new Config(
-            require CONFIG_PATH.'/server.php'
-        ));
-
         $this->debug = config('debug');
         $this->ip    = config('server')->listen->ip;
         $this->port  = config('server')->listen->port;
@@ -50,7 +46,7 @@ class FlyTask extends \Phalcon\CLI\Task
     public function onRequest($request, $response)
     {
         if ($this->debug) {
-            $this->debug('Request uri= '.$request->server['request_uri']);
+            console()->out('[REQUEST] '.$request->server['request_uri']);
         }
 
         try {
@@ -72,10 +68,5 @@ class FlyTask extends \Phalcon\CLI\Task
             echo $e->getMessage().PHP_EOL;
             echo $e->getTraceAsString().PHP_EOL;
         }
-    }
-
-    protected function debug($msg)
-    {
-        console()->out('[DEBUG] '.$msg);
     }
 }
