@@ -32,7 +32,7 @@ return [
              * 启用守护进程后
              * 标准输入和输出会被重定向到 log file
              */
-            'daemonize'   => 0,
+            'daemonize'   => false,
 
             /*
              * 一个worker进程在处理完超过此数值的任务后将自动退出

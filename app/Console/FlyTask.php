@@ -33,6 +33,7 @@ class FlyTask extends \Phalcon\CLI\Task
 
         //使用超全局变量在异步非阻塞的模式下可能存在不可重入问题
         $http->setGlobal(HTTP_GLOBAL_ALL);
+
         $http->set(config('server')->config->toArray());
         $http->on('request', [$this, 'onRequest']);
 
@@ -58,11 +59,9 @@ class FlyTask extends \Phalcon\CLI\Task
             if (is_object($ret)) {
                 $response->end($ret->getContent());
             } else {
-                if (is_string($ret)) {
-                    $response->end($ret);
-                } else {
+                is_string($ret) ?
+                    $response->end($ret) :
                     $response->end();
-                }
             }
         } catch (Exception $e) {
             echo $e->getMessage().PHP_EOL;
