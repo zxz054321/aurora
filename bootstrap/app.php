@@ -15,6 +15,8 @@ $config = new Config(array_replace_recursive(
     require ROOT.'/_'
 ));
 
+date_default_timezone_set($config->timezone);
+
 /*
  * Set up Dependency Injector
  */
