@@ -3,9 +3,9 @@
  * Author: Abel Halo <zxz054321@163.com>
  */
 return [
-    'debug'    => true,
+    'debug' => true,
 
-    'cache'    => [
+    'cache' => [
         'driver'    => 'file',
         'file'      => [
             'dir' => ROOT.'/storage/framework/cache/',
@@ -25,6 +25,12 @@ return [
             'username' => 'root',
             'password' => '',
             'dbname'   => 'doclib',
+        ],
+    ],
+
+    'server' => [
+        'listen' => [
+            'port' => 80,
         ],
     ],
 ];
