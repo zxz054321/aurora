@@ -47,11 +47,11 @@ function config($key = null)
  *
  * @param  int $code
  * @param  string $message
- * @return Response
+ * @return \App\Foundation\Response
  */
 function abort($code, $message = '')
 {
-    /** @var Response $response */
+    /** @var \App\Foundation\Response $response */
     $response = app('response');
 
     if ($code == 404) {
