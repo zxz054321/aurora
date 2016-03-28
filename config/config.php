@@ -3,7 +3,8 @@
  * Author: Abel Halo <zxz054321@163.com>
  */
 return [
-    'debug' => false,
+    'debug'    => false,
+    'timezone' => 'PRC',
 
     'database' => [
         'eloquent' => false,
