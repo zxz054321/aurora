@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Foundation;
 
 /**
@@ -48,7 +49,7 @@ class Server
 
             $app = require ROOT.'/bootstrap/swoole.php';
 
-            /** @var \App\Foundation\Response $res */
+            /** @var Response $res */
             $res = $app->handle($request->server['request_uri']);
 
             if ($res instanceof Response) {
@@ -58,7 +59,7 @@ class Server
                     $response->end($res) :
                     $response->end();
             }
-        } catch (Exception $e) {
+        } catch (\Exception $e) {
             echo $e->getMessage().PHP_EOL;
             echo $e->getTraceAsString().PHP_EOL;
         }

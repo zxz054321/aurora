@@ -5,7 +5,6 @@
 
 namespace App\Foundation;
 
-
 use Phalcon\Di;
 use Phalcon\Http\Response as Base;
 
@@ -50,6 +49,7 @@ class Response extends Base
         }
 
         if ($this->_headers) {
+            /** @noinspection PhpUndefinedMethodInspection */
             $headers = $this->_headers->toArray();
 
             foreach ($headers as $key => $value) {
