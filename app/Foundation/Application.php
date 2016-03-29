@@ -33,9 +33,20 @@ class Application
 
         /** @noinspection PhpUndefinedFieldInspection */
         date_default_timezone_set($this->config->timezone);
+    }
 
-        $this->di = Di::getDefault();
-        $this->di->set('config', $this->config);
+    /**
+     * @param \Phalcon\DiInterface $di
+     */
+    public function setDi($di = null)
+    {
+        if (!$di) {
+            $di = Di::getDefault();
+        }
+
+        $di->set('config', $this->config);
+
+        $this->di = $di;
     }
 
     public function di()
@@ -79,4 +90,6 @@ class Application
             $this->di = $provider->inject();
         }
     }
+
+
 }

@@ -14,15 +14,18 @@ require '../bootstrap/autoload.php';
 /*
  * Inject Dependencies
  */
-Di::setDefault(new Di\FactoryDefault);
+$di = new Di\FactoryDefault;
+
+Di::setDefault($di);
 
 /** @var Application $app */
 $app = require ROOT.'/bootstrap/app.php';
-$di  = $app->di();
 
-$config = $di->get('config');
+$app->setDi();
 
-if ($config->debug) {
+$debug = $di->get('config')->debug;
+
+if ($debug) {
     $profiler = new \Fabfuel\Prophiler\Profiler();
     $profiler->addAggregator(new \Fabfuel\Prophiler\Aggregator\Database\QueryAggregator());
     $profiler->addAggregator(new \Fabfuel\Prophiler\Aggregator\Cache\CacheAggregator());
@@ -47,7 +50,7 @@ $micro->handle();
 /*
  * Get profiler
  */
-if (!defined('DONT_PROFILE') && config('debug')) {
+if (!defined('DONT_PROFILE') && $debug) {
     $toolbar = new \Fabfuel\Prophiler\Toolbar($profiler);
     $toolbar->addDataCollector(new \Fabfuel\Prophiler\DataCollector\Request());
     echo $toolbar->render();
