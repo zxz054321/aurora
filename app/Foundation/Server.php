@@ -2,11 +2,18 @@
 
 namespace App\Foundation;
 
+use App\Providers\ServerServiceProvider;
+use Phalcon\Di;
+
 /**
  * Author: Abel Halo <zxz054321@163.com>
  */
 class Server
 {
+    const BEFORE_SERVER_START = 'before_server_start';
+
+    protected static $hooks = [];
+
     protected $debug, $ip, $port;
 
     public function __construct($ip, $port)
@@ -14,6 +21,15 @@ class Server
         $this->debug = config('debug');
         $this->ip    = $ip;
         $this->port  = $port;
+
+        $di = (new ServerServiceProvider(new Di, config()))->inject();
+
+        Super::setDi($di);
+    }
+
+    public static function hook($event, callable $func)
+    {
+        self::$hooks[ $event ][] = $func;
     }
 
     public function serve()
@@ -27,7 +43,18 @@ class Server
         $http->set($config);
         $http->on('request', [$this, 'onRequest']);
 
+        $this->runHooks(static::BEFORE_SERVER_START);
+
         $http->start();
+    }
+
+    protected function runHooks($event)
+    {
+        $list = self::$hooks[ $event ];
+
+        foreach ($list as $hook) {
+            $hook();
+        }
     }
 
     /**
