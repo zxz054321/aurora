@@ -94,6 +94,7 @@ abstract class TestCase extends FunctionalTestCase
         $this->di->set(
             'modelsMetadata',
             function () {
+                /** @noinspection PhpUndefinedClassInspection */
                 return new PhMetadataMemory();
             }
         );
