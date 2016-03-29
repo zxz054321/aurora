@@ -15,8 +15,14 @@ return [
     ],
 
     'server' => [
+        'mode' => SWOOLE_PROCESS,
+
         'listen' => [
             'ip'   => '0.0.0.0',
+
+            /*
+             * Root privileges required to listen port <= 1024
+             */
             'port' => 9501,
         ],
 

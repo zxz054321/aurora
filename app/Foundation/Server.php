@@ -34,7 +34,11 @@ class Server
 
     public function serve()
     {
-        $http   = new \swoole_http_server($this->ip, $this->port);
+        $http   = new \swoole_http_server(
+            $this->ip,
+            $this->port,
+            config('server')->mode
+        );
         $config = config('server')->config->toArray();
 
         //使用超全局变量在异步非阻塞的模式下可能存在不可重入问题
@@ -50,6 +54,10 @@ class Server
 
     protected function runHooks($event)
     {
+        if (!isset(self::$hooks[ $event ])) {
+            return;
+        }
+
         $list = self::$hooks[ $event ];
 
         foreach ($list as $hook) {
