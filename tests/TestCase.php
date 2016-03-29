@@ -3,6 +3,7 @@
  * Author: Abel Halo <zxz054321@163.com>
  */
 
+use App\Foundation\Application;
 use App\Providers\AppServiceProvider;
 use Phalcon\Config;
 use Phalcon\Di;
@@ -47,8 +48,14 @@ abstract class TestCase extends FunctionalTestCase
         Di::reset();
         Di::setDefault(new Di\FactoryDefault);
 
-        $this->di = require ROOT.'/bootstrap/app.php';
-        $this->di = (new AppServiceProvider($this->di, config()))->inject();
+        /** @var Application $app */
+        $app = require ROOT.'/bootstrap/app.php';
+
+        $app->registerServiceProviders([
+            AppServiceProvider::class,
+        ]);
+
+        $this->di = $app->di();
     }
 
     protected function setupUnitTest()

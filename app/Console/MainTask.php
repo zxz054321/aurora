@@ -1,4 +1,5 @@
 <?php
+use App\Foundation\Application;
 
 /**
  * Author: Abel Halo <zxz054321@163.com>
@@ -7,6 +8,6 @@ class MainTask extends \Phalcon\CLI\Task
 {
     public function mainAction()
     {
-        console()->out('Lightning Console v'.VERSION);
+        console()->out('Lightning v'.Application::VERSION);
     }
 }

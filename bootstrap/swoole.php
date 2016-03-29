@@ -8,24 +8,29 @@ use App\Providers\WebServiceProvider;
 use Phalcon\Di;
 use Phalcon\Mvc\Micro;
 
+require '../bootstrap/autoload.php';
+
 /*
  * Inject Dependencies
  */
 Di::setDefault(new Di\FactoryDefault);
 
-$di     = require ROOT.'/bootstrap/app.php';
-$config = $di->get('config');
+/** @var Application $app */
+$app = require ROOT.'/bootstrap/app.php';
+$di  = $app->di();
 
-$di = (new AppServiceProvider($di, $config))->inject();
-$di = (new WebServiceProvider($di, $config))->inject();
+$app->registerServiceProviders([
+    AppServiceProvider::class,
+    WebServiceProvider::class,
+]);
 
 /*
  * Bootstrap app
  */
-$app = new Micro();
-$app->setDI($di);
-$app->setEventsManager($di->get('eventsManager'));
+$micro = new Micro();
+$micro->setDI($di);
+$micro->setEventsManager($di->get('eventsManager'));
 
 require ROOT.'/app/routes.php';
 
-return $app;
+return $micro;

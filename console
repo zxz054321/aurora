@@ -4,14 +4,13 @@
  * Author: Abel Halo <zxz054321@163.com>
  */
 
+use App\Foundation\Application;
 use App\Providers\AppServiceProvider;
 use App\Providers\ConsoleServiceProvider;
 use Phalcon\CLI\Console as ConsoleApp;
 use Phalcon\Config;
 use Phalcon\Di;
 use Phalcon\Di\FactoryDefault\Cli;
-
-define('VERSION', '0.2.0');
 
 /*
  * Register the autoloader and
@@ -32,15 +31,20 @@ require APP_PATH.'/console-helpers.php';
  * Inject dependencies
  */
 Di::setDefault(new CLI);
-$di = require ROOT.'/bootstrap/app.php';
+
+/** @var Application $app */
+$app = require ROOT.'/bootstrap/app.php';
+$di  = $app->di();
 
 $di->get('config')
     ->merge(new Config(
         require CONFIG_PATH.'/console.php'
     ));
 
-$di = (new AppServiceProvider($di, $di->get('config')))->inject();
-$di = (new ConsoleServiceProvider($di, $di->get('config')))->inject();
+$app->registerServiceProviders([
+    AppServiceProvider::class,
+    ConsoleServiceProvider::class,
+]);
 
 /*
  * Create a console application
