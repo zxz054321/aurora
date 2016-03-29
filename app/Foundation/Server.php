@@ -2,8 +2,11 @@
 
 namespace App\Foundation;
 
+use App\Providers\AppServiceProvider;
 use App\Providers\ServerServiceProvider;
+use App\Providers\WebServiceProvider;
 use Phalcon\Di;
+use Phalcon\Mvc\Micro;
 
 /**
  * Author: Abel Halo <zxz054321@163.com>
@@ -14,17 +17,23 @@ class Server
 
     protected static $hooks = [];
 
+    /**
+     * @var Application
+     */
+    protected $app;
+
     protected $debug, $ip, $port;
 
     public function __construct($ip, $port)
     {
+        $this->app   = require ROOT.'/bootstrap/app.php';
         $this->debug = config('debug');
         $this->ip    = $ip;
         $this->port  = $port;
 
-        $di = (new ServerServiceProvider(new Di, config()))->inject();
-
-        Super::setDi($di);
+        Super::setDi(
+            (new ServerServiceProvider(new Di, config()))->inject()
+        );
     }
 
     public static function hook($event, callable $func)
@@ -79,13 +88,27 @@ class Server
             console()->out("[$time] $method ".$request->server['request_uri']);
         }
 
-        try {
-            Response::setInstance($response);
+        Response::setInstance($response);
 
-            $app = require ROOT.'/bootstrap/swoole.php';
+        try {
+            $di = new Di\FactoryDefault;
+
+            Di::setDefault($di);
+            $this->app->setDi($di);
+
+            $this->app->registerServiceProviders([
+                AppServiceProvider::class,
+                WebServiceProvider::class,
+            ]);
+
+            $micro = new Micro();
+            $micro->setDI($di);
+            $micro->setEventsManager($di->get('eventsManager'));
+
+            require ROOT.'/app/routes.php';
 
             /** @var Response $res */
-            $res = $app->handle($request->server['request_uri']);
+            $res = $micro->handle($request->server['request_uri']);
 
             if ($res instanceof Response) {
                 $res->end();

@@ -14,7 +14,7 @@ class FlyTask extends \Phalcon\CLI\Task
         $port   = config('server')->listen->port;
         $server = new Server($ip, $port);
 
-        console()->out("Lightning listening at http://{$ip}:{$port}");
+        console()->out("Lightning listening at http://{$ip}:{$port}/");
 
         $server->serve();
     }
