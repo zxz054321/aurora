@@ -30,11 +30,14 @@ require APP_PATH.'/console-helpers.php';
 /*
  * Inject dependencies
  */
-Di::setDefault(new CLI);
+$di = new CLI;
+
+Di::setDefault($di);
 
 /** @var Application $app */
 $app = require ROOT.'/bootstrap/app.php';
-$di  = $app->di();
+
+$app->setDi();
 
 $di->get('config')
     ->merge(new Config(

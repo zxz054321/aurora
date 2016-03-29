@@ -51,6 +51,7 @@ abstract class TestCase extends FunctionalTestCase
         /** @var Application $app */
         $app = require ROOT.'/bootstrap/app.php';
 
+        $app->setDi();
         $app->registerServiceProviders([
             AppServiceProvider::class,
         ]);
