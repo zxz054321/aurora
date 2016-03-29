@@ -8,8 +8,6 @@ use App\Providers\WebServiceProvider;
 use Phalcon\Di;
 use Phalcon\Mvc\Micro;
 
-require '../bootstrap/autoload.php';
-
 /*
  * Inject Dependencies
  */
