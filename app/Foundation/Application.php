@@ -80,13 +80,14 @@ class Application
 
     /**
      * Register all of the service providers.
-     *
+     * @param array $providers
      * @return void
      */
     public function registerServiceProviders(array $providers)
     {
         foreach ($providers as $provider) {
             $provider = new $provider($this->di, $this->config);
+            /** @noinspection PhpUndefinedMethodInspection */
             $this->di = $provider->inject();
         }
     }
