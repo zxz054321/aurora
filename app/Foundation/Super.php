@@ -19,19 +19,25 @@ class Super
      */
     protected static $di;
 
-    /**
-     * @return mixed
-     */
+    protected static $container = [];
+
     public static function di()
     {
         return self::$di;
     }
 
-    /**
-     * @param mixed $di
-     */
     public static function setDi(DiInterface $di)
     {
         self::$di = $di;
+    }
+
+    public static function get($name)
+    {
+        return self::$container[ $name ];
+    }
+
+    public static function set($name, $definition)
+    {
+        self::$container [ $name ] = $definition;
     }
 }
