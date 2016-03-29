@@ -3,47 +3,8 @@
  * Author: Abel Halo <zxz054321@163.com>
  */
 
-use Phalcon\Config;
-use Phalcon\Di;
-use Phalcon\Logger\Adapter\File as FileAdapter;
+$app = new \App\Foundation\Application();
 
-/*
- * Load config first
- */
-$config = new Config(array_replace_recursive(
-    require CONFIG_PATH.'/config.php',
-    require ROOT.'/_'
-));
+$app->registerExceptionHandler();
 
-date_default_timezone_set($config->timezone);
-
-/*
- * Set up Dependency Injector
- */
-$di = Di::getDefault();
-$di->set('config', $config);
-
-/*
- * Global error handler & logger
- */
-register_shutdown_function(function () use ($config) {
-    if (!is_null($error = error_get_last())) {
-        /** @noinspection PhpUndefinedFieldInspection */
-        if (!$config->debug && $error['type'] >= E_NOTICE) {
-            return;
-        }
-
-        $logger = new FileAdapter(ROOT.'/storage/logs/error.log');
-
-        $logger->error(print_r($error, true));
-    }
-});
-
-// Report errors in debug mode only
-/** @noinspection PhpUndefinedFieldInspection */
-if (!$config->debug) {
-    error_reporting(0);
-}
-
-
-return $di;
+return $app;

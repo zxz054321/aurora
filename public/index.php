@@ -3,6 +3,7 @@
  * Author: Abel Halo <zxz054321@163.com>
  */
 
+use App\Foundation\Application;
 use App\Providers\AppServiceProvider;
 use App\Providers\WebServiceProvider;
 use Phalcon\Di;
@@ -15,7 +16,10 @@ require '../bootstrap/autoload.php';
  */
 Di::setDefault(new Di\FactoryDefault);
 
-$di     = require ROOT.'/bootstrap/app.php';
+/** @var Application $app */
+$app = require ROOT.'/bootstrap/app.php';
+$di  = $app->di();
+
 $config = $di->get('config');
 
 if ($config->debug) {
@@ -24,19 +28,21 @@ if ($config->debug) {
     $profiler->addAggregator(new \Fabfuel\Prophiler\Aggregator\Cache\CacheAggregator());
 }
 
-$di = (new AppServiceProvider($di, $config))->inject();
-$di = (new WebServiceProvider($di, $config))->inject();
+$app->registerServiceProviders([
+    AppServiceProvider::class,
+    WebServiceProvider::class,
+]);
 
 /*
  * Bootstrap app
  */
-$app = new Micro();
-$app->setDI($di);
-$app->setEventsManager($di->get('eventsManager'));
+$micro = new Micro();
+$micro->setDI($di);
+$micro->setEventsManager($di->get('eventsManager'));
 
 require ROOT.'/app/routes.php';
 
-$app->handle();
+$micro->handle();
 
 /*
  * Get profiler

@@ -9,8 +9,8 @@ $appController = new MicroCollection();
 $appController->setHandler(App\Controllers\AppController::class, true);
 $appController->get('/', 'hi');
 
-$app->mount($appController);
+$micro->mount($appController);
 
-$app->notFound(function () {
+$micro->notFound(function () {
     return abort(404);
 });
