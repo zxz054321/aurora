@@ -10,11 +10,14 @@ class ExampleTest extends TestCase
 {
     public function testShouldSeeWelcome()
     {
+        $port     = config('server')->listen->port;
         $provider = Request::getProvider();
-        $response = $provider->get('http://localhost/');
+        $response = $provider->get("http://localhost:$port/");
 
         $this->assertEquals(true,
-            str_contains($response->body, "I'm Lightning!")
+            str_contains($response->body,
+                'If I have seen further, it is by standing on the shoulders of giants.'
+            )
         );
     }
 }

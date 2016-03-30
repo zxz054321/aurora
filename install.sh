@@ -2,7 +2,7 @@
 
 # Created by Abel<zxz054321@163.com> on 2016/2/3.
 
-echo "Lightning Installer"
+echo "Aurora Installer"
 echo "by Abel <zxz054321@163.com>"
 
 sudo chown -R www.www *

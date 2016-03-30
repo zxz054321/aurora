@@ -1,39 +1,23 @@
-## Lightning (PHP Framework)
+## Aurora (PHP Framework)
 
-Lightning 是一个建立在 Phalcon 之上的高性能框架，专为 Web 艺术家打造。她考虑了常见的 Web 业务需求，七十二变可大可小——既可用于开发CMS之类的大型系统，也适用于规模较小的 API 接口、微服务。
+**想要丧心病狂的极限性能？**
 
-Lightning is a high performance framework that sits on top of Phalcon. It's for web artisans. In consideration of the popular Web business needs, Lightning is so flexible that is capable of the development of large systems (CMS, etc) or smaller systems (API services, micro-services, etc)
+**Looking for extremely high performance solution? This is it.**
 
-> We believe development must be an enjoyable, creative experience to be
-> truly fulfilling. Laravel attempts to take the pain out of development
-> by easing common tasks used in the majority of web projects.
->
-> *by Laravel*
+Aurora 是一个建立在 [Lightning](https://github.com/zxz054321/lightning) 之上的高性能高并发框架，专为丧心病狂的极限性能打造。她适用于需要支持高并发的场景，如API 接口、微服务等。
 
-Laravel 有一个高性能版本的微框架叫作 Lumen ，虽然在纯PHP框架当中它算是比较快的框架了，但这还远远不够。Lightning 致力于打造出一个有着优雅语法的全栈框架。很多灵感来自于 Laravel ，也许你会发现她挺像 Laravel 的。
-
-The high performance version of Laravel is Lumen, but it’s not good/fast enough. Lightning is trying to be a fast full-stack framework with elegant syntax. Laravel gave me a lot of inspiration, so you may find she a bit like Laravel.
-
-**什么，这还不够？想要更丧心病狂的极限性能？**
-
-**What, not fast enough? Still looking for extremely high performance solution?**
-
-**实验性质：**去看看 `swoole` 分支*（专为丧心病狂的极限性能打造）*
-
-**Experimental:** Check the `swoole` branch *(build for frenzied performance)*
+Aurora is a high performance and high concurrency framework that sits on top of Lightning. It's built for frenzied performance, and applies to the need to support high concurrency scenarios, such as API interfaces, micro-services.
 
 ### 亮点 Features
 
- - 为高性能而生
- - Optimized for high performance
+ - 为高性能高并发而生
+ - Optimized for high performance and high concurrency
  - 魚*（优雅）*和熊掌*（性能）*亦可兼得
  - Maintaining elegance without sacrificing performance
  - 现代化工具，奇妙的开发之旅
  - Modern toolkit, pinch of magic
  - 来自 Laravel 的数据迁移器和结构生成器
  - Laravel's database agnostic migrations and schema builder
- - 由 Laravel Elixir 提供的用于定义 Gulp任务的简洁、流畅的API
- - Laravel Elixir provides a clean, fluent API for defining basic Gulp tasks.
  - 实用的辅助函数
  - Useful helper functions
  - *有时间再写……*
@@ -43,6 +27,7 @@ The high performance version of Laravel is Lumen, but it’s not good/fast enoug
 
 - PHP >= 5.5
 - Phalcon PHP Extension
+- Swoole PHP Extension
 
 ### 安装 Installation
 
@@ -64,15 +49,21 @@ Then rename `_example.php` to `_`
 
 ### 用法 Usage
 
-首先安装好PHP环境，然后安装正确的 Phalcon 扩展。
+首先安装好PHP环境，然后安装正确的 Phalcon 和 Swoole 扩展。
 
-First you need to setup the PHP environment, then install the correct Phalcon extension.
+First you need to setup the PHP environment, then install the correct Phalcon and Swoole extension.
+
+使用命令行启动 Aurora 服务
+
+Use the command to start Aurora server
+
+    php console fly
 
 ### 许可 License
 
-Lightning 框架是为基于 Apache 2.0 许可发布的开源软件。详情请阅 LICENSE 文件。
+Aurora 框架是为基于 Apache 2.0 许可发布的开源软件。详情请阅 LICENSE 文件。
 
-The Lightning framework is open-sourced software licensed under the Apache 2.0 license.  See the LICENSE file for more.
+The Aurora framework is open-sourced software licensed under the Apache 2.0 license.  See the LICENSE file for more.
 
 ### 帮助翻译 Translation
 

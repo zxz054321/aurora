@@ -12,7 +12,7 @@ use Phalcon\Logger\Adapter\File as FileAdapter;
 class Application
 {
     /**
-     * The Lightning framework version.
+     * The Aurora framework version.
      *
      * @var string
      */

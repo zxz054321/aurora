@@ -8,6 +8,6 @@ class MainTask extends \Phalcon\CLI\Task
 {
     public function mainAction()
     {
-        console()->out('Lightning v'.Application::VERSION);
+        console()->out('Aurora v'.Application::VERSION);
     }
 }

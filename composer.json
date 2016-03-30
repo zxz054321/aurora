@@ -1,6 +1,6 @@
 {
-  "name": "zxz054321/lightning",
-  "description": "A micro framework powered by Phalcon",
+  "name": "zxz054321/Aurora",
+  "description": "A micro framework powered by Lightning",
   "minimum-stability": "stable",
   "license": "Apache-2.0",
   "authors": [

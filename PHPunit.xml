@@ -10,7 +10,7 @@
          processIsolation="false"
          stopOnFailure="false"
          syntaxCheck="true">
-    <testsuite name="Lightning - Testsuite">
+    <testsuite name="Aurora - Testsuite">
         <directory>./tests/</directory>
     </testsuite>
 </phpunit>
