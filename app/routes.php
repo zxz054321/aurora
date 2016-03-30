@@ -9,6 +9,7 @@ $appController = new MicroCollection();
 $appController->setHandler(App\Controllers\AppController::class, true);
 $appController->get('/', 'hi');
 
+/** @noinspection PhpUndefinedVariableInspection */
 $micro->mount($appController);
 
 $micro->notFound(function () {
