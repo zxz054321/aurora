@@ -14,14 +14,6 @@ Laravel 有一个高性能版本的微框架叫作 Lumen ，虽然在纯PHP框�
 
 The high performance version of Laravel is Lumen, but it’s not good/fast enough. Lightning is trying to be a fast full-stack framework with elegant syntax. Laravel gave me a lot of inspiration, so you may find she a bit like Laravel.
 
-**什么，这还不够？想要更丧心病狂的极限性能？**
-
-**What, not fast enough? Still looking for extremely high performance solution?**
-
-**实验性质：**去看看 [Aurora](https://github.com/zxz054321/aurora) 项目*（专为丧心病狂的极限性能打造）*
-
-**Experimental:** Check the [Aurora](https://github.com/zxz054321/aurora) project *(build for frenzied performance)*
-
 ### 亮点 Features
 
  - 为高性能而生
