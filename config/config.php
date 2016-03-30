@@ -27,7 +27,7 @@ return [
         ],
 
         'config' => [
-            'log_file'    => ROOT.'/storage/logs/swoole.log',
+            'log_file'    => STORAGE_PATH.'/logs/swoole.log',
 
             /*
              * 重定向Worker进程的文件系统根目录
