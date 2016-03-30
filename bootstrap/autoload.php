@@ -18,6 +18,10 @@ if (!defined('CONFIG_PATH')) {
     define('CONFIG_PATH', ROOT.'/config');
 }
 
+if (!defined('STORAGE_PATH')) {
+    define('STORAGE_PATH', ROOT.'/storage');
+}
+
 /*
  * Autoloader
  */
