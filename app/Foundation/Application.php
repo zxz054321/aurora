@@ -16,7 +16,7 @@ class Application
      *
      * @var string
      */
-    const VERSION = '0.0.0 (Unstable)';
+    const VERSION = '0.1.0';
 
     /**
      * @var \Phalcon\DiInterface
