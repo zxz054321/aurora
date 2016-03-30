@@ -22,6 +22,10 @@ if (!defined('VIEW_PATH')) {
     define('VIEW_PATH', ROOT.'/resources/views');
 }
 
+if (!defined('STORAGE_PATH')) {
+    define('STORAGE_PATH', ROOT.'/storage');
+}
+
 /*
  * Autoloader
  */
