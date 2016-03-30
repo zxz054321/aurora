@@ -18,9 +18,9 @@ The high performance version of Laravel is Lumen, but it’s not good/fast enoug
 
 **What, not fast enough? Still looking for extremely high performance solution?**
 
-**实验性质：**去看看 `swoole` 分支*（专为丧心病狂的极限性能打造）*
+**实验性质：**去看看 [Aurora](https://github.com/zxz054321/aurora) 项目*（专为丧心病狂的极限性能打造）*
 
-**Experimental:** Check the `swoole` branch *(build for frenzied performance)*
+**Experimental:** Check the [Aurora](https://github.com/zxz054321/aurora) project *(build for frenzied performance)*
 
 ### 亮点 Features
 
