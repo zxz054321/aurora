@@ -76,6 +76,7 @@ class Server
 
     /**
      * Never call this function manually
+     * TODO file_get_contents('php://input') is not supported yet
      * @param \swoole_http_request $request
      * @param \swoole_http_response $response
      */
