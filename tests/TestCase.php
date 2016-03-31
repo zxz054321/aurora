@@ -5,6 +5,7 @@
 
 use App\Foundation\Application;
 use App\Providers\AppServiceProvider;
+use App\Providers\ServerServiceProvider;
 use Phalcon\Config;
 use Phalcon\Di;
 use Phalcon\Di\FactoryDefault;
@@ -54,6 +55,7 @@ abstract class TestCase extends FunctionalTestCase
         $app->setDi();
         $app->registerServiceProviders([
             AppServiceProvider::class,
+            ServerServiceProvider::class,
         ]);
 
         $this->di = $app->di();
