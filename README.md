@@ -34,17 +34,17 @@ Aurora is a high performance and high concurrency framework that sits on top of 
 
 **安装 Installation**
 
-Lightning 使用 Composer 来管理依赖包。因此，在使用之前，请确保你已经安装了 Composer ，然后执行命令：
+Aurora 使用 Composer 来管理依赖包。因此，在使用之前，请确保你已经安装了 Composer ，然后执行命令：
 
-Lightning utilizes Composer to manage its dependencies. So, before using Lightning, make sure you have Composer installed, and execute the following command:
+Aurora utilizes Composer to manage its dependencies. So, before using Aurora, make sure you have Composer installed, and execute the following command:
 
     composer install
 
 **应用配置 Application Configuration**
 
-Lightning 框架所用的配置文件存放在 config 目录下，请通读配置文件以熟悉可用的配置项。
+Aurora 框架所用的配置文件存放在 config 目录下，请通读配置文件以熟悉可用的配置项。
 
-All of the configuration files for the Lightning framework are stored in the config directory. Feel free to look through the files and get familiar with the options available to you.
+All of the configuration files for the Aurora framework are stored in the config directory. Feel free to look through the files and get familiar with the options available to you.
 
 **环境配置 Environment Configuration**
 
@@ -52,9 +52,9 @@ All of the configuration files for the Lightning framework are stored in the con
 
 It is often helpful to have different configuration values based on the environment the application is running in. For example, you may wish to use a different cache driver locally than you do on your production server. It's easy using environment based configuration.
 
-为了简化配置，Lightning 使用“单下划线”文件来表示环境配置。在全新安装的 Lightning 中，应用程序的根目录下都会有一个 `_example.php` 文件。这是环境配置的示例文件，在运行 Lightning 之前请将其手动重命名为单下划线： `_`
+为了简化配置，Aurora 使用“单下划线”文件来表示环境配置。在全新安装的 Aurora 中，应用程序的根目录下都会有一个 `_example.php` 文件。这是环境配置的示例文件，在运行 Aurora 之前请将其手动重命名为单下划线： `_`
 
-To make this a cinch, Lightning uses the single underscore file to represent the environment configuration. In a fresh Lightning installation, the root directory of your application will contain a `_example.php` file. This is a sample environment configuration file, you should rename it to `_` manually before running the application.
+To make this a cinch, Aurora uses the single underscore file to represent the environment configuration. In a fresh Aurora installation, the root directory of your application will contain a `_example.php` file. This is a sample environment configuration file, you should rename it to `_` manually before running the application.
 
 `_` 文件不应该和应用程序的源码一起被提交到源码仓库中，因为每个开发环境 / 服务器环境可能需要不同的环境配置。如果你们是一个开发团队，可能希望将 `_example.php` 文件包含到源码中。
 
