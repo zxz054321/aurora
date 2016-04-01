@@ -62,7 +62,7 @@ To make this a cinch, Aurora uses the single underscore file to represent the en
 
 Your `_` file should not be committed to your application's source control, since each developer / server using your application could require a different environment configuration. If you are developing with a team, you may wish to continue including a `_example.php` file with your application.
 
-### 用法 Usage
+**用法 Usage**
 
 使用命令行启动 Aurora 服务
 
@@ -72,7 +72,7 @@ Use the command to start Aurora server
 
 **HTTP路由 HTTP Routing**
 
-Lightning 的路由基于 Phalcon 的路由模块，用法也是相同的。你可以在 `app/routes.php` 中定义应用程序的路由。
+Aurora 的路由基于 Phalcon 的路由模块，用法也是相同的。你可以在 `app/routes.php` 中定义应用程序的路由。
 
 HTTP Routing is based on Phalcon's router component. Their usage is the same. You will define routes for your application in the `app/routes.php` file.
 
@@ -81,7 +81,6 @@ HTTP Routing is based on Phalcon's router component. Their usage is the same. Yo
 除了在单一的 routes.php 文件中定义所有的请求处理逻辑，你可能希望使用控制器类来组织这些逻辑。控制器一般存放在 `app/Controllers` 目录下，类名一般以 `Controller` 为后缀。
 
 Instead of defining all of your request handling logic in a single `routes.php` file, you may wish to organize this behavior using Controller classes. Controllers are stored in the `app/Controllers` directory, and generally named with the suffix `Controller`.
-First you need to setup the PHP environment, then install the correct Phalcon and Swoole extension.
 
 ### 许可 License
 
