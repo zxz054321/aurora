@@ -2,7 +2,8 @@
 /**
  * Author: Abel Halo <zxz054321@163.com>
  */
-return [
+
+return [// NOTICE! These options will always take effect
     /*
      * When your application is in debug mode, detailed error messages with
      * stack traces will be shown on every error that occurs within your
