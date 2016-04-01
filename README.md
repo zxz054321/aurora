@@ -18,6 +18,8 @@ Aurora is a high performance and high concurrency framework that sits on top of 
  - Modern toolkit, pinch of magic
  - 来自 Laravel 的数据迁移器和结构生成器
  - Laravel's database agnostic migrations and schema builder
+ - 由 Laravel Elixir 提供的用于定义 Gulp任务的简洁、流畅的API
+ - Laravel Elixir provides a clean, fluent API for defining basic Gulp tasks.
  - 实用的辅助函数
  - Useful helper functions
  - *有时间再写……*
@@ -62,15 +64,24 @@ Your `_` file should not be committed to your application's source control, sinc
 
 ### 用法 Usage
 
-首先安装好PHP环境，然后安装正确的 Phalcon 和 Swoole 扩展。
-
-First you need to setup the PHP environment, then install the correct Phalcon and Swoole extension.
-
 使用命令行启动 Aurora 服务
 
 Use the command to start Aurora server
 
     php console fly
+
+**HTTP路由 HTTP Routing**
+
+Lightning 的路由基于 Phalcon 的路由模块，用法也是相同的。你可以在 `app/routes.php` 中定义应用程序的路由。
+
+HTTP Routing is based on Phalcon's router component. Their usage is the same. You will define routes for your application in the `app/routes.php` file.
+
+**HTTP 控制器 HTTP Controllers**
+
+除了在单一的 routes.php 文件中定义所有的请求处理逻辑，你可能希望使用控制器类来组织这些逻辑。控制器一般存放在 `app/Controllers` 目录下，类名一般以 `Controller` 为后缀。
+
+Instead of defining all of your request handling logic in a single `routes.php` file, you may wish to organize this behavior using Controller classes. Controllers are stored in the `app/Controllers` directory, and generally named with the suffix `Controller`.
+First you need to setup the PHP environment, then install the correct Phalcon and Swoole extension.
 
 ### 许可 License
 
