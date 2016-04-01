@@ -67,12 +67,6 @@ To make this a cinch, Lightning uses the single underscore file to represent the
 
 Your `_` file should not be committed to your application's source control, since each developer / server using your application could require a different environment configuration. If you are developing with a team, you may wish to continue including a `_example.php` file with your application.
 
-### 用法 Usage
-
-首先安装好PHP环境，然后安装正确的 Phalcon 扩展。
-
-First you need to setup the PHP environment, then install the correct Phalcon extension.
-
 ### 许可 License
 
 Lightning 框架是为基于 Apache 2.0 许可发布的开源软件。详情请阅 LICENSE 文件。
