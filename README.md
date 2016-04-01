@@ -18,8 +18,6 @@ Aurora is a high performance and high concurrency framework that sits on top of 
  - Modern toolkit, pinch of magic
  - 来自 Laravel 的数据迁移器和结构生成器
  - Laravel's database agnostic migrations and schema builder
- - 由 Laravel Elixir 提供的用于定义 Gulp任务的简洁、流畅的API
- - Laravel Elixir provides a clean, fluent API for defining basic Gulp tasks.
  - 实用的辅助函数
  - Useful helper functions
  - *有时间再写……*
