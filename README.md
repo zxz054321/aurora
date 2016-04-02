@@ -82,13 +82,13 @@ Instead of defining all of your request handling logic in a single `routes.php` 
 
 **服务提供者 Service Providers**
 
-服务提供者是 Lightning 应用程序启动的中心所在。我们所说的 “启动” 指的是什么？一般而言，我们指的是注册事物，比如注册服务容器绑定。
+服务提供者是 Aurora 应用程序启动的中心所在。我们所说的 “启动” 指的是什么？一般而言，我们指的是注册事物，比如注册服务容器绑定。
 
-Service providers are the central place of Lightning application bootstrapping. What do we mean by "bootstrapped"? In general, we mean registering things, for example, registering service container bindings.
+Service providers are the central place of Aurora application bootstrapping. What do we mean by "bootstrapped"? In general, we mean registering things, for example, registering service container bindings.
 
-但与其它框架不同的是，出于对性能优化的考虑，Lightning 中每个服务提供者都有其特定用途。
+但与其它框架不同的是，出于对性能优化的考虑，Aurora 中每个服务提供者都有其特定用途。
 
-But, being different from other frameworks, each service provider in Lightning has its specific purpose, out of consideration for performance optimization.
+But, being different from other frameworks, each service provider in Aurora has its specific purpose, out of consideration for performance optimization.
 
 服务提供者存放在 `app/Providers` 目录下，类名一般以 `ServiceProvider` 为后缀。
 
@@ -100,9 +100,9 @@ Service providers are stored in the `app/Providers` directory, and generally nam
 
 Views contain the HTML served by your application and separate your controller / application logic from your presentation logic. Views are stored in the `resources/views` directory.
 
-Lightning 集成了 Phalcon 的 Simple View 组件。出于对性能的考虑，建议使用 AngularJS / Jade 之类的技术代替服务端模板渲染
+Aurora 集成了 Phalcon 的 Simple View 组件。出于对性能的考虑，建议使用 AngularJS / Jade 之类的技术代替服务端模板渲染
 
-Lightning integrates Phalcon's Simple View components. In consideration of performance, instead of server-side template rendering, it is recommended to use front-end technology such as AngularJS, Jade
+Aurora integrates Phalcon's Simple View components. In consideration of performance, instead of server-side template rendering, it is recommended to use front-end technology such as AngularJS, Jade
 
 ### 许可 License
 
