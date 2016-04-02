@@ -93,6 +93,16 @@ But, being different from other frameworks, each service provider in Lightning h
 
 Service providers are stored in the `app/Providers` directory, and generally named with the suffix `ServiceProvider`.
 
+**视图 Views**
+
+视图包含你应用程序所用到的 HTML，它能够有效分离应用程序的显示逻辑与控制逻辑。视图存放在 `resources/views` 目录下。
+
+Views contain the HTML served by your application and separate your controller / application logic from your presentation logic. Views are stored in the `resources/views` directory.
+
+Lightning 集成了 Phalcon 的 Simple View 组件。出于对性能的考虑，建议使用 AngularJS / Jade 之类的技术代替服务端模板渲染
+
+Lightning integrates Phalcon's Simple View components. In consideration of performance, instead of server-side template rendering, it is recommended to use front-end technology such as AngularJS, Jade
+
 ### 许可 License
 
 Lightning 框架是为基于 Apache 2.0 许可发布的开源软件。详情请阅 LICENSE 文件。
