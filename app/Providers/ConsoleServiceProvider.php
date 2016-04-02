@@ -11,8 +11,13 @@ namespace App\Providers;
  */
 class ConsoleServiceProvider extends ServiceProvider
 {
+    /**
+     * Register any application services.
+     *
+     * @return void
+     */
     protected function register()
     {
-
+        //
     }
 }

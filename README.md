@@ -80,6 +80,30 @@ HTTP Routing is based on Phalcon's router component. Their usage is the same. Yo
 
 Instead of defining all of your request handling logic in a single `routes.php` file, you may wish to organize this behavior using Controller classes. Controllers are stored in the `app/Controllers` directory, and generally named with the suffix `Controller`.
 
+**服务提供者 Service Providers**
+
+服务提供者是 Lightning 应用程序启动的中心所在。我们所说的 “启动” 指的是什么？一般而言，我们指的是注册事物，比如注册服务容器绑定。
+
+Service providers are the central place of Lightning application bootstrapping. What do we mean by "bootstrapped"? In general, we mean registering things, for example, registering service container bindings.
+
+但与其它框架不同的是，出于对性能优化的考虑，Lightning 中每个服务提供者都有其特定用途。
+
+But, being different from other frameworks, each service provider in Lightning has its specific purpose, out of consideration for performance optimization.
+
+服务提供者存放在 `app/Providers` 目录下，类名一般以 `ServiceProvider` 为后缀。
+
+Service providers are stored in the `app/Providers` directory, and generally named with the suffix `ServiceProvider`.
+
+**视图 Views**
+
+视图包含你应用程序所用到的 HTML，它能够有效分离应用程序的显示逻辑与控制逻辑。视图存放在 `resources/views` 目录下。
+
+Views contain the HTML served by your application and separate your controller / application logic from your presentation logic. Views are stored in the `resources/views` directory.
+
+Lightning 集成了 Phalcon 的 Simple View 组件。出于对性能的考虑，建议使用 AngularJS / Jade 之类的技术代替服务端模板渲染
+
+Lightning integrates Phalcon's Simple View components. In consideration of performance, instead of server-side template rendering, it is recommended to use front-end technology such as AngularJS, Jade
+
 ### 许可 License
 
 Aurora 框架是为基于 Apache 2.0 许可发布的开源软件。详情请阅 LICENSE 文件。

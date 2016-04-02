@@ -13,6 +13,11 @@ use App\Foundation\Response;
  */
 class WebServiceProvider extends ServiceProvider
 {
+    /**
+     * Register any application services.
+     *
+     * @return void
+     */
     protected function register()
     {
         $this->di->setShared('response', new Response());
