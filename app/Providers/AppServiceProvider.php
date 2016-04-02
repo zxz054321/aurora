@@ -21,6 +21,11 @@ use Phalcon\Db\Adapter\Pdo\Mysql;
  */
 class AppServiceProvider extends ServiceProvider
 {
+    /**
+     * Register any application services.
+     *
+     * @return void
+     */
     protected function register()
     {
         $this->registerCache();

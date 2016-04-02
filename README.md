@@ -79,6 +79,20 @@ HTTP Routing is based on Phalcon's router component. Their usage is the same. Yo
 
 Instead of defining all of your request handling logic in a single `routes.php` file, you may wish to organize this behavior using Controller classes. Controllers are stored in the `app/Controllers` directory, and generally named with the suffix `Controller`.
 
+**服务提供者 Service Providers**
+
+服务提供者是 Lightning 应用程序启动的中心所在。我们所说的 “启动” 指的是什么？一般而言，我们指的是注册事物，比如注册服务容器绑定。
+
+Service providers are the central place of Lightning application bootstrapping. What do we mean by "bootstrapped"? In general, we mean registering things, for example, registering service container bindings.
+
+但与其它框架不同的是，出于对性能优化的考虑，Lightning 中每个服务提供者都有其特定用途。
+
+But, being different from other frameworks, each service provider in Lightning has its specific purpose, out of consideration for performance optimization.
+
+服务提供者存放在 `app/Providers` 目录下，类名一般以 `ServiceProvider` 为后缀。
+
+Service providers are stored in the `app/Providers` directory, and generally named with the suffix `ServiceProvider`.
+
 ### 许可 License
 
 Lightning 框架是为基于 Apache 2.0 许可发布的开源软件。详情请阅 LICENSE 文件。

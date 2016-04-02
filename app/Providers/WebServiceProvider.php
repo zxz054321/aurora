@@ -13,6 +13,11 @@ use Phalcon\Mvc\View\Simple;
  */
 class WebServiceProvider extends ServiceProvider
 {
+    /**
+     * Register any application services.
+     *
+     * @return void
+     */
     protected function register()
     {
         $this->di->set('view', function () {

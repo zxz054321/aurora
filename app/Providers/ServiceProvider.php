@@ -28,5 +28,10 @@ abstract class ServiceProvider
         return $this->di;
     }
 
+    /**
+     * Register any application services.
+     *
+     * @return void
+     */
     abstract protected function register();
 }
