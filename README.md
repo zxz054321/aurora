@@ -29,6 +29,13 @@ Aurora is a high performance and high concurrency framework that sits on top of 
 - Phalcon PHP Extension
 - Swoole PHP Extension
 
+### 用法 Usage
+
+使用命令行启动 Aurora 服务
+
+Use the command to start Aurora server
+
+    php console fly
 
 ### 文档 Documentation
 
@@ -59,14 +66,6 @@ To make this a cinch, Aurora uses the single underscore file to represent the en
 `_` 文件不应该和应用程序的源码一起被提交到源码仓库中，因为每个开发环境 / 服务器环境可能需要不同的环境配置。如果你们是一个开发团队，可能希望将 `_example.php` 文件包含到源码中。
 
 Your `_` file should not be committed to your application's source control, since each developer / server using your application could require a different environment configuration. If you are developing with a team, you may wish to continue including a `_example.php` file with your application.
-
-**用法 Usage**
-
-使用命令行启动 Aurora 服务
-
-Use the command to start Aurora server
-
-    php console fly
 
 **HTTP路由 HTTP Routing**
 
