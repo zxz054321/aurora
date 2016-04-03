@@ -23,6 +23,18 @@ class WebServiceProvider extends ServiceProvider
         $this->di->set('view', function () {
             $view = new Simple();
             $view->setViewsDir(VIEW_PATH.'/');
+            $view->registerEngines([
+                '.phtml' => \Phalcon\Mvc\View\Engine\Php::class,
+                '.volt'  => function ($view, $di) {
+                    $volt = new \Phalcon\Mvc\View\Engine\Volt($view, $di);
+
+                    $volt->setOptions([
+                        'compiledPath' => STORAGE_PATH.'/framework/views/',
+                    ]);
+
+                    return $volt;
+                },
+            ]);
 
             return $view;
         });
