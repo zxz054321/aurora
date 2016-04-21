@@ -5,6 +5,8 @@
 
 namespace App\Providers;
 
+use App\Foundation\ServiceProvider;
+
 /**
  * Runs only in Swoole server
  * @package App\Providers
