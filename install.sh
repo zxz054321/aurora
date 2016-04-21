@@ -9,8 +9,10 @@ sudo chown -R www.www *
 sudo chmod -R 666 storage
 
 if [ ! -f "/usr/local/bin/composer" ]; then
-    echo "Downloading Composer..."
-    curl -sS https://getcomposer.org/installer | php
+    echo "Downloading Composer installer..."
+    php -r "readfile('https://getcomposer.org/installer');" > composer-setup.php
+    php composer-setup.php
+    php -r "unlink('composer-setup.php');"
     sudo mv composer.phar /usr/local/bin/composer
     echo "composer installed."
 fi
