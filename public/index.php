@@ -6,7 +6,13 @@
 use App\Foundation\Application;
 use App\Providers\AppServiceProvider;
 use App\Providers\WebServiceProvider;
+use Fabfuel\Prophiler\Aggregator\Cache\CacheAggregator;
+use Fabfuel\Prophiler\Aggregator\Database\QueryAggregator;
+use Fabfuel\Prophiler\DataCollector\Request;
+use Fabfuel\Prophiler\Profiler;
+use Fabfuel\Prophiler\Toolbar;
 use Phalcon\Di;
+use Phalcon\Di\FactoryDefault;
 use Phalcon\Mvc\Micro;
 
 require '../bootstrap/autoload.php';
@@ -14,7 +20,7 @@ require '../bootstrap/autoload.php';
 /*
  * Inject Dependencies
  */
-$di = new Di\FactoryDefault;
+$di = new FactoryDefault;
 
 Di::setDefault($di);
 
@@ -23,12 +29,15 @@ $app = require ROOT.'/bootstrap/app.php';
 
 $app->setDi();
 
-$debug = $di->get('config')->debug;
+$debug     = $di->get('config')->debug;
+$doProfile = class_exists(Profiler::class);
 
 if ($debug) {
-    $profiler = new \Fabfuel\Prophiler\Profiler();
-    $profiler->addAggregator(new \Fabfuel\Prophiler\Aggregator\Database\QueryAggregator());
-    $profiler->addAggregator(new \Fabfuel\Prophiler\Aggregator\Cache\CacheAggregator());
+    if ($doProfile) {
+        $profiler = new Profiler();
+        $profiler->addAggregator(new QueryAggregator());
+        $profiler->addAggregator(new CacheAggregator());
+    }
 }
 
 $app->registerServiceProviders([
@@ -50,8 +59,8 @@ $micro->handle();
 /*
  * Get profiler
  */
-if (!defined('DONT_PROFILE') && $debug) {
-    $toolbar = new \Fabfuel\Prophiler\Toolbar($profiler);
-    $toolbar->addDataCollector(new \Fabfuel\Prophiler\DataCollector\Request());
+if (!defined('DONT_PROFILE') && $debug && $doProfile) {
+    $toolbar = new Toolbar($profiler);
+    $toolbar->addDataCollector(new Request());
     echo $toolbar->render();
 }
