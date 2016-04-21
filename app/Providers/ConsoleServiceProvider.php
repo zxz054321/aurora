@@ -5,6 +5,8 @@
 
 namespace App\Providers;
 
+use App\Foundation\ServiceProvider;
+
 /**
  * Runs only in the command line environment
  * @package App\Providers

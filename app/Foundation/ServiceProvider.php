@@ -3,7 +3,7 @@
  * Author: Abel Halo <zxz054321@163.com>
  */
 
-namespace App\Providers;
+namespace App\Foundation;
 
 use Phalcon\DiInterface;
 

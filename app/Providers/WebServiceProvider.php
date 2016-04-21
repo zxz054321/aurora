@@ -5,6 +5,7 @@
 
 namespace App\Providers;
 
+use App\Foundation\ServiceProvider;
 use Phalcon\Mvc\View\Simple;
 
 /**
